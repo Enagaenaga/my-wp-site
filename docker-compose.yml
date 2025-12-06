@@ -1,0 +1,79 @@
+services:
+  db:
+    image: mysql:8.0
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    command: --max_allowed_packet=256M --innodb_buffer_pool_size=256M --default-authentication-plugin=mysql_native_password
+    networks:
+      - wordpress-network
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  wordpress:
+    build: .
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    ports:
+      - "8080:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: user
+      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEBUG', true);
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', true);
+        define('WP_SITEURL', 'http://localhost:8080');
+        define('WP_HOME', 'http://localhost:8080');
+        define('WP_MEMORY_LIMIT', '512M');
+        define('WP_MAX_MEMORY_LIMIT', '512M');
+        define('WP_HTTP_BLOCK_EXTERNAL', false);
+        define('WP_ACCESSIBLE_HOSTS', 'localhost,*.wordpress.org');
+        define('DISABLE_WP_CRON', true);
+        define('WP_ENVIRONMENT_TYPE', 'local');
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - wordpress-network
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:80" ]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: rootpassword
+      UPLOAD_LIMIT: 64M
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - wordpress-network
+
+volumes:
+  db_data:
+
+
+networks:
+  wordpress-network:
+    driver: bridge

@@ -1,0 +1,600 @@
+@charset "UTF-8";
+
+/*!
+Theme Name: Cocoon Child
+Description: Cocoon専用の子テーマ
+Theme URI: https://wp-cocoon.com/
+Author: わいひら
+Author URI: https://nelog.jp/
+Template:   cocoon-master
+Version:    1.1.3
+*/
+
+/************************************
+** 子テーマ用のスタイルを書く
+************************************/
+/*必要ならばここにコードを書く*/
+
+/************************************
+** ヒーローセクション
+************************************/
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  /* 画面の85%の高さ */
+  min-height: 500px;
+  max-height: 900px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  /* 重なり順を調整 - ナビゲーションより手前に */
+  z-index: 100;
+  position: relative;
+  background-color: #0e0e1e;
+
+  /* ヘッダーとの重なりを防ぐために余白を追加 */
+  margin-top: 20px;
+  /* もしヘッダーが固定の場合は、ヘッダーの高さ分（約100px〜150px）余白を増やす必要があります */
+  /* padding-top: 100px; */
+}
+
+/* 背景画像（パララックス用） */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  /* パララックス移動幅確保 */
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  z-index: 1;
+  transform: translateZ(0);
+  /* GPUアクセラレーション */
+  will-change: transform;
+}
+
+/* オーバーレイ */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(14, 14, 30, 0.4) 0%, rgba(10, 10, 20, 0.8) 100%);
+  z-index: 2;
+}
+
+/* Particles.js */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+/* コンテンツコンテナ */
+.hero-content {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.hero-content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* タイトル */
+.hero-title {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #00C6FF 0%, #0072FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-bottom: 10px;
+  /* グラデーション切れ防止 */
+  filter: drop-shadow(0 0 20px rgba(0, 114, 255, 0.5));
+}
+
+/* サブタイトル */
+.hero-subtitle {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  font-weight: 400;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* CTAボタン */
+.hero-cta {
+  margin-top: 20px;
+}
+
+.btn-shine {
+  position: relative;
+  padding: 15px 45px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(5px);
+  display: inline-block;
+}
+
+.btn-shine:hover {
+  background: #ffffff;
+  color: #1a1a2e;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+  border-color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* アニメーション用クラス */
+.fade-in-text {
+  opacity: 0;
+  transform: translateY(30px);
+  display: inline-block;
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+.delay-4 {
+  animation-delay: 0.9s;
+}
+
+.delay-5 {
+  animation-delay: 1.2s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* スクロールダウンインジケーター */
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.scroll-down span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: scrollDown 2s infinite;
+  opacity: 0;
+}
+
+.scroll-down span:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.scroll-down span:nth-child(3) {
+  animation-delay: .4s;
+}
+
+@keyframes scrollDown {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+}
+
+/* レスポンシブ対応 - ヒーローセクション */
+@media screen and (max-width: 1023px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-section {
+    height: 75vh;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+
+    br {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+
+  .btn-shine {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+  }
+}
+
+/************************************
+** ヘッダーデザイン - エナガブログ風
+************************************/
+
+/* ========================================
+   1. ヘッダー全体のスタイリング
+======================================== */
+.header-container,
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #8E2DE2 100%);
+  position: relative;
+}
+
+/* ヘッダー内の全テキストを白に */
+.header-container,
+.header-container a,
+.header-container .site-name-text,
+.header-container .tagline,
+.header-container .logo-text,
+.site-name-text,
+.tagline {
+  color: #ffffff !important;
+}
+
+/* ========================================
+   2. ロゴ・キャッチフレーズ
+======================================== */
+/* ロゴエリアを中央揃え */
+.header-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0 10px;
+}
+
+.logo-header {
+  text-align: center;
+  width: 100%;
+}
+
+/* ロゴ画像がある場合のスタイル */
+.logo-header img {
+  max-height: 60px;
+  width: auto;
+}
+
+/* サイト名（テキストロゴ）*/
+.site-name-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.05em;
+}
+
+/* キャッチフレーズ */
+.tagline {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin-top: 5px;
+  letter-spacing: 0.02em;
+}
+
+/* ========================================
+   3. グローバルナビゲーション
+======================================== */
+/* ナビゲーション全体 */
+#navi,
+.navi-in {
+  background: transparent !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0 20px;
+}
+
+/* ナビゲーションリスト */
+#navi .menu-header,
+.navi-in>ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: transparent !important;
+}
+
+/* 各メニュー項目 - カプセル型ボタン */
+#navi .menu-header>li,
+.navi-in>ul>li {
+  margin: 0;
+  padding: 0;
+}
+
+#navi .menu-header>li>a,
+.navi-in>ul>li>a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+
+  /* グラスモーフィズム効果 */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* 枠線と角丸 */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+
+  /* テキストスタイル */
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* トランジション */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* シャドウ */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ホバー効果 */
+#navi .menu-header>li>a:hover,
+.navi-in>ul>li>a:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* アクティブ状態（現在のページ）*/
+#navi .menu-header>li.current-menu-item>a,
+.navi-in>ul>li.current-menu-item>a,
+#navi .menu-header>li.current_page_item>a,
+.navi-in>ul>li.current_page_item>a {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* メニューアイコン */
+#navi .menu-header>li>a .fa,
+#navi .menu-header>li>a .fas,
+#navi .menu-header>li>a .far,
+#navi .menu-header>li>a .fab,
+.navi-in>ul>li>a .fa,
+.navi-in>ul>li>a .fas,
+.navi-in>ul>li>a .far,
+.navi-in>ul>li>a .fab {
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+/* ドロップダウン矢印 */
+#navi .menu-header>li>a .sub-menu-arrow,
+.navi-in>ul>li>a::after {
+  color: rgba(255, 255, 255, 0.7);
+  margin-left: 5px;
+}
+
+/* ========================================
+   4. サブメニュー（ドロップダウン）
+======================================== */
+#navi .menu-header>li>ul.sub-menu,
+.navi-in>ul>li>ul.sub-menu {
+  background: rgba(102, 126, 234, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 10px 0;
+  margin-top: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+#navi .sub-menu li a,
+.navi-in .sub-menu li a {
+  color: #ffffff !important;
+  padding: 10px 25px;
+  transition: background 0.2s ease;
+}
+
+#navi .sub-menu li a:hover,
+.navi-in .sub-menu li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   5. ヘッダー通知バー（アフィリエイト通知など）
+======================================== */
+.header-top {
+  background: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 8px 15px;
+}
+
+/* ========================================
+   6. 検索ボックス（ヘッダー内）
+======================================== */
+.header .search-box,
+.header-container .search-box {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.header .search-box input,
+.header-container .search-box input {
+  color: #ffffff;
+  background: transparent;
+}
+
+.header .search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.header .search-box button,
+.header-container .search-box button {
+  color: #ffffff;
+}
+
+/************************************
+** レスポンシブデザイン用のメディアクエリ
+************************************/
+/*1023px以下（タブレット）*/
+@media screen and (max-width: 1023px) {
+
+  /* ナビゲーションボタンのサイズ調整 */
+  #navi .menu-header>li>a,
+  .navi-in>ul>li>a {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
+
+  /* ボタン間のギャップ調整 */
+  #navi .menu-header,
+  .navi-in>ul {
+    gap: 10px;
+  }
+}
+
+/*834px以下（タブレット小・スマホ大）*/
+@media screen and (max-width: 834px) {
+
+  /* サイト名のサイズ調整 */
+  .site-name-text {
+    font-size: 2rem;
+  }
+
+  /* キャッチフレーズのサイズ調整 */
+  .tagline {
+    font-size: 0.85rem;
+  }
+
+  /* ナビゲーションボタンの調整 */
+  #navi .menu-header>li>a,
+  .navi-in>ul>li>a {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
+
+  /* ボタン間のギャップをさらに狭く */
+  #navi .menu-header,
+  .navi-in>ul {
+    gap: 8px;
+    padding: 0 10px;
+  }
+}
+
+/*480px以下（スマホ）*/
+@media screen and (max-width: 480px) {
+
+  /* サイト名をさらに小さく */
+  .site-name-text {
+    font-size: 1.6rem;
+  }
+
+  /* ナビゲーションボタンをコンパクトに */
+  #navi .menu-header>li>a,
+  .navi-in>ul>li>a {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  /* モバイルメニューのスタイリング */
+  #navi .menu-header,
+  .navi-in>ul {
+    gap: 6px;
+  }
+
+  /* ヘッダーパディング調整 */
+  .header-in {
+    padding: 15px 10px 8px;
+  }
+
+  #navi,
+  .navi-in {
+    padding: 10px 5px 15px;
+  }
+}

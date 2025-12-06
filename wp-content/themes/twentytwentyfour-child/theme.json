@@ -1,0 +1,78 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 2,
+    "settings": {
+        "color": {
+            "palette": [
+                {
+                    "slug": "primary",
+                    "color": "#667eea",
+                    "name": "Primary"
+                },
+                {
+                    "slug": "secondary",
+                    "color": "#764ba2",
+                    "name": "Secondary"
+                },
+                {
+                    "slug": "dark",
+                    "color": "#1a202c",
+                    "name": "Dark"
+                },
+                {
+                    "slug": "dark-secondary",
+                    "color": "#2d3748",
+                    "name": "Dark Secondary"
+                }
+            ]
+        },
+        "typography": {
+            "fontFamilies": [
+                {
+                    "fontFamily": "'Noto Sans JP', sans-serif",
+                    "slug": "primary",
+                    "name": "Noto Sans JP"
+                },
+                {
+                    "fontFamily": "'Zen Kaku Gothic New', sans-serif",
+                    "slug": "heading",
+                    "name": "Zen Kaku Gothic New"
+                }
+            ],
+            "fontSizes": [
+                {
+                    "slug": "small",
+                    "size": "0.875rem",
+                    "name": "Small"
+                },
+                {
+                    "slug": "medium",
+                    "size": "1rem",
+                    "name": "Medium"
+                },
+                {
+                    "slug": "large",
+                    "size": "1.25rem",
+                    "name": "Large"
+                },
+                {
+                    "slug": "x-large",
+                    "size": "1.875rem",
+                    "name": "Extra Large"
+                }
+            ]
+        }
+    },
+    "styles": {
+        "typography": {
+            "fontFamily": "var(--wp--preset--font-family--primary)"
+        },
+        "elements": {
+            "heading": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--heading)"
+                }
+            }
+        }
+    }
+}

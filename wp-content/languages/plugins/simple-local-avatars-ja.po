@@ -1,0 +1,256 @@
+# Translation of Plugins - Simple Local Avatars - Stable (latest release) in Japanese
+# This file is distributed under the same license as the Plugins - Simple Local Avatars - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-06-21 14:05:53+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Plugins - Simple Local Avatars - Stable (latest release)\n"
+
+#: 10up-lib/wp-compat-validation-tool/src/Validator.php:152
+msgid "%s error:"
+msgstr "%s エラー:"
+
+#. Author of the plugin
+#: simple-local-avatars.php
+msgid "10up"
+msgstr "10up"
+
+#. translators: %s: Formatted size.
+#: includes/class-simple-local-avatars.php:1085
+msgid "Max allowed avatar size is %s"
+msgstr "アバターの最大許容サイズは %s です"
+
+#: includes/class-simple-local-avatars.php:1077
+msgid "Only images can be uploaded as an avatar"
+msgstr "アバターとしてアップロードできるのは画像のみです"
+
+#: includes/class-simple-local-avatars.php:492
+msgid "Avatar photo"
+msgstr "アバター画像"
+
+#: includes/class-simple-local-avatars.php:140
+msgid "Default Crop"
+msgstr "デフォルトの切り抜き"
+
+#: includes/class-simple-local-avatars.php:1540
+msgid "Choose Default Avatar"
+msgstr "デフォルトアバターを選択"
+
+#: includes/class-simple-local-avatars.php:841
+msgid "Choose default avatar"
+msgstr "デフォルトアバターを選択"
+
+#: includes/class-simple-local-avatars.php:1715
+msgid "Do you want to migrate avatars from WP User Avatar?"
+msgstr "WP User Avatar からアバターを移行しますか ?"
+
+#. translators: %s Total users
+#: includes/class-simple-local-avatars.php:1482
+msgid "Completed clearing cache for all %s user(s) avatars."
+msgstr "すべての %s ユーザーアバターのキャッシュのクリアが完了しました。"
+
+#. translators: 1: Offset, 2: Total users
+#: includes/class-simple-local-avatars.php:1469
+msgid "Processing %1$s/%2$s users..."
+msgstr "%1$s / %2$s ユーザーを処理しています..."
+
+#: includes/class-simple-local-avatars.php:840
+msgid "Something went wrong while clearing cache, please try again."
+msgstr "キャッシュのクリア中に問題が発生しました。もう一度お試しください。"
+
+#: includes/class-simple-local-avatars.php:918
+msgid "Migrate avatars from WP User Avatar to Simple Local Avatars"
+msgstr "アバターを WP User Avatar から Simple Local Avatars に移行する"
+
+#: includes/class-simple-local-avatars.php:905
+msgid "Simple Local Avatar settings are currently enforced across all sites on the network."
+msgstr "Simple Local Avatar 設定は現在、ネットワーク上のすべてのサイトに適用されています。"
+
+#: includes/class-simple-local-avatars.php:893
+msgid "Clear cache"
+msgstr "キャッシュをクリア"
+
+#: includes/class-simple-local-avatars.php:844
+msgid "Migration in progress."
+msgstr "移行を進行中"
+
+#: includes/class-simple-local-avatars.php:843
+#: includes/class-simple-local-avatars.php:1723
+msgid "No avatars were migrated from WP User Avatar."
+msgstr "WP User Avatar から移行されたアバターはありません。"
+
+#: includes/class-simple-local-avatars.php:842
+#: includes/class-simple-local-avatars.php:1729
+msgid "Number of avatars successfully migrated from WP User Avatar"
+msgstr "WP User Avatar から正常に移行されたアバターの数"
+
+#: includes/class-simple-local-avatars.php:835
+msgid "Select avatar and Crop"
+msgstr "アバターを選択して切り抜き"
+
+#: includes/class-simple-local-avatars.php:730
+msgid "Local upload permissions"
+msgstr "ローカルアップロードの権限"
+
+#: includes/class-simple-local-avatars.php:715
+msgid "Local avatars only"
+msgstr "ローカルアバターのみ"
+
+#: includes/class-simple-local-avatars.php:709
+msgid "Enforce the settings below across all sites"
+msgstr "以下の設定をすべてのサイトに適用する"
+
+#: includes/class-simple-local-avatars.php:708
+msgid "Default to the settings below when creating a new site"
+msgstr "新しいサイトを作成するときは、次の設定をデフォルトにします"
+
+#: includes/class-simple-local-avatars.php:703
+#: includes/class-simple-local-avatars.php:707
+msgid "Mode"
+msgstr "モード"
+
+#: includes/class-simple-local-avatars.php:699
+msgid "Simple Local Avatars Settings"
+msgstr "Simple Local Avatars 設定"
+
+#: includes/class-simple-local-avatars.php:666
+msgid "Clear cache of stored avatars"
+msgstr "保存されたアバターのキャッシュをクリアする"
+
+#: includes/class-simple-local-avatars.php:660
+msgid "Clear local avatar cache"
+msgstr "ローカルアバターキャッシュをクリアする"
+
+#: includes/class-simple-local-avatars.php:653
+msgid "Migrate Other Local Avatars"
+msgstr "他のローカルアバターを移行する"
+
+#: includes/class-simple-local-avatars.php:638
+#: includes/class-simple-local-avatars.php:752
+msgid "Uploaded avatars will be shared across the entire network, instead of being unique per site"
+msgstr "アップロードしたアバターは、サイトごとに一意ではなく、ネットワーク全体で共有されます"
+
+#: includes/class-simple-local-avatars.php:631
+#: includes/class-simple-local-avatars.php:745
+msgid "Shared network avatars"
+msgstr "ネットワーク アバターを共有"
+
+#: includes/class-simple-local-avatars.php:235
+msgid "Settings"
+msgstr "設定"
+
+#: includes/class-simple-local-avatars.php:624
+#: includes/class-simple-local-avatars.php:737
+msgid "Only allow users with file upload capabilities to upload local avatars (Authors and above)"
+msgstr "ファイルアップロードの権限を持ったユーザー（投稿者かそれ以上） にのみ、アバター画像のアップロードを許可する "
+
+#: includes/class-simple-local-avatars.php:612
+#: includes/class-simple-local-avatars.php:722
+msgid "Only allow local avatars (still uses Gravatar for default avatars)"
+msgstr "ローカルのアバターのみを許可します (デフォルトのアバターには引き続き Gravatar を使用します)"
+
+#: includes/class-simple-local-avatars.php:996
+#: includes/class-simple-local-avatars.php:999
+msgid "Rating"
+msgstr "評価"
+
+#: includes/class-simple-local-avatars.php:930
+msgid "Avatar"
+msgstr "アバター"
+
+#: includes/class-simple-local-avatars.php:834
+msgid "Set as avatar"
+msgstr "アバターとして設定"
+
+#: includes/class-simple-local-avatars.php:934
+msgid "Upload Avatar"
+msgstr "アバターをアップロード"
+
+#: includes/class-simple-local-avatars.php:970
+msgid "Choose an image from your computer:"
+msgstr "コンピュータから画像を選択:"
+
+#: includes/class-simple-local-avatars.php:976
+msgid "Choose from Media Library"
+msgstr "メディアライブラリから選択"
+
+#: includes/class-simple-local-avatars.php:1120
+msgid "There was an error uploading the avatar:"
+msgstr "アバターをアップロード中にエラーが発生しました:"
+
+#: includes/class-simple-local-avatars.php:1158
+msgid "You do not have permission to edit this user."
+msgstr "このユーザーを編集する権限がありません。"
+
+#. Plugin Name of the plugin
+#: simple-local-avatars.php
+msgid "Simple Local Avatars"
+msgstr "Simple Local Avatars"
+
+#: includes/class-simple-local-avatars.php:605
+msgid "Local Avatars Only"
+msgstr "ローカルアバターのみ"
+
+#: includes/class-simple-local-avatars.php:617
+msgid "Local Upload Permissions"
+msgstr "ローカルアップロード権限"
+
+#. translators: Content suitability rating:
+#. https://en.wikipedia.org/wiki/Motion_Picture_Association_of_America_film_rating_system
+#: includes/class-simple-local-avatars.php:577
+msgid "G &#8212; Suitable for all audiences"
+msgstr "G &#8212; あらゆる人に適切"
+
+#. translators: Content suitability rating:
+#. https://en.wikipedia.org/wiki/Motion_Picture_Association_of_America_film_rating_system
+#: includes/class-simple-local-avatars.php:583
+msgid "X &#8212; Even more mature than above"
+msgstr "X &#8212; 最高レベルの制限"
+
+#. translators: Content suitability rating:
+#. https://en.wikipedia.org/wiki/Motion_Picture_Association_of_America_film_rating_system
+#: includes/class-simple-local-avatars.php:581
+msgid "R &#8212; Intended for adult audiences above 17"
+msgstr "R &#8212; 17歳以上の成人向き"
+
+#. translators: Content suitability rating:
+#. https://en.wikipedia.org/wiki/Motion_Picture_Association_of_America_film_rating_system
+#: includes/class-simple-local-avatars.php:579
+msgid "PG &#8212; Possibly offensive, usually for audiences 13 and above"
+msgstr "PG &#8212; 不快感を与える恐れ — 13歳以上の人向き"
+
+#. Author URI of the plugin
+#: simple-local-avatars.php
+msgid "https://10up.com"
+msgstr "https://10up.com"
+
+#. Plugin URI of the plugin
+#: simple-local-avatars.php
+msgid "https://10up.com/plugins/simple-local-avatars-wordpress/"
+msgstr "https://10up.com/plugins/simple-local-avatars-wordpress/"
+
+#. Description of the plugin
+#: simple-local-avatars.php
+msgid "Adds an avatar upload field to user profiles. Generates requested sizes on demand, just like Gravatar! Simple and lightweight."
+msgstr "ユーザープロフィールにアバターアップロードフィールドを追加します。Gravatar のように、要求されたサイズをオンデマンドで生成します ! シンプルで軽量です。"
+
+#: includes/class-simple-local-avatars.php:1009
+msgid "If the local avatar is inappropriate for this site, Gravatar will be attempted."
+msgstr "ローカルアバターがこのサイトに不適切な場合、Gravatar が試行されます。"
+
+#: includes/class-simple-local-avatars.php:987
+msgid "You do not have media management permissions. To change your local avatar, contact the blog administrator."
+msgstr "メディア管理権限がありません。ローカルアバターを変更するには、ブログ管理者にお問い合わせください。"
+
+#: includes/class-simple-local-avatars.php:985
+msgid "No local avatar is set. Set up your avatar at Gravatar.com."
+msgstr "ローカルアバターは設定されていません。Gravatar.com でアバターを設定します。"
+
+#: includes/class-simple-local-avatars.php:979
+msgid "Remove local avatar"
+msgstr "ローカルアバターを削除"

@@ -1,0 +1,745 @@
+# Translation of Themes - Arkhe in Japanese
+# This file is distributed under the same license as the Themes - Arkhe package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-03-12 14:24:45+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Themes - Arkhe\n"
+
+#. Description of the theme
+#: style.css
+#, gp-priority: high
+msgid "A very simple theme for production templates. Customize as you like."
+msgstr "制作テンプレート用のとてもシンプルなテーマです。あなたの好きなようにカスタマイズしてください。"
+
+#. Theme Name of the theme
+#: style.css inc/theme_menu.php:13
+#, gp-priority: high
+msgid "Arkhe"
+msgstr "Arkhe"
+
+#: inc/theme_menu/licence.php:127
+msgid "Deauthorize"
+msgstr "認証解除"
+
+#: inc/customizer/post_list.php:140
+msgid "Force display of current category"
+msgstr "現在のカテゴリーを強制的に表示する"
+
+#: inc/customizer/post_list.php:136
+msgid "Overriding priority on Category Pages"
+msgstr "カテゴリーページでの優先度の上書き"
+
+#: inc/customizer/post_list.php:128
+msgid "Display the top-level category even if it is not directly associated with the post"
+msgstr "投稿と直接紐付いてなくても、一番上層のカテゴリーを表示する"
+
+#: inc/customizer/post_list.php:120 inc/customizer/post_list.php:141
+msgid "Prefer child category"
+msgstr "子カテゴリーを優先する"
+
+#: inc/customizer/post_list.php:119
+msgid "Prefer parent category"
+msgstr "親カテゴリーを優先する"
+
+#: inc/customizer/post_list.php:118 inc/customizer/post_list.php:139
+msgid "Not set"
+msgstr "設定しない"
+
+#: inc/customizer/post_list.php:115
+msgid "Priority for retrieving category"
+msgstr "カテゴリーの取得優先度"
+
+#: inc/customizer/header.php:35
+msgid "Header text color"
+msgstr "ヘッダーの文字色"
+
+#: inc/customizer/header.php:27
+msgid "Header background color"
+msgstr "ヘッダーの背景色"
+
+#: inc/customizer/footer.php:33
+msgid "Footer text color"
+msgstr "フッターの文字色"
+
+#: inc/customizer/footer.php:25
+msgid "Footer background color"
+msgstr "フッターの背景色"
+
+#: inc/customizer/common.php:168
+msgid "Smooth scroll"
+msgstr "スムーススクロール"
+
+#: inc/customizer/common.php:144
+msgid "Others"
+msgstr "その他"
+
+#. translators: %s is link;
+#: inc/theme_menu/licence.php:110
+msgid "Purchasing \"%s\" will allow you to update all Arkhe plugins to the latest version."
+msgstr "「%s」を購入すると、全てのArkheプラグインを最新版へアップデートできるようになります。"
+
+#: inc/theme_menu/licence.php:92
+msgid "Creator License"
+msgstr "制作ライセンス"
+
+#: inc/theme_menu/licence.php:79
+msgid "Personal License"
+msgstr "個人ライセンス"
+
+#. translators: %s is email;
+#. translators: %s is owner;
+#: inc/theme_menu/licence.php:78 inc/theme_menu/licence.php:91
+msgid "This is \"%1$s\" and is owned by %2$s."
+msgstr "これは「%1$s」で、所有者は %2$s です。"
+
+#: inc/theme_menu/licence.php:69
+msgid "This license key is currently disabled."
+msgstr "このライセンスキーは現在無効になっています。"
+
+#: inc/customizer/single.php:58
+msgid "Show taxonomy when Custom Post Types"
+msgstr "カスタム投稿タイプの時、タクソノミーを表示する"
+
+#: inc/customizer/common.php:57 inc/theme_support.php:119
+msgid "Light gray color"
+msgstr "薄いグレーの色"
+
+#: inc/theme_support.php:82
+msgid "Double extra large"
+msgstr "超特大"
+
+#: inc/customizer/header.php:253
+msgid "Logo image for Overlay Header"
+msgstr "オーバーレイヘッダー時のロゴ画像"
+
+#: inc/customizer/header.php:244
+msgid "Text color for Overlay Header"
+msgstr "オーバーレイヘッダー時のテキストカラー"
+
+#: template-parts/other/breadcrumb.php:243
+msgctxt "daily archives date format"
+msgid "j"
+msgstr "j日"
+
+#: classes/Utility/Get.php:176
+msgctxt "daily archives date format"
+msgid "F j, Y"
+msgstr "Y年n月j日"
+
+#: classes/Utility/Get.php:174
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "Y年n月"
+
+#: classes/Utility/Get.php:172 template-parts/other/breadcrumb.php:241
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y年"
+
+#: inc/theme_menu/licence.php:111
+msgid "Arkhe License"
+msgstr "Arkheライセンス"
+
+#: template-parts/other/breadcrumb.php:37
+msgid "Search results"
+msgstr "検索結果"
+
+#: inc/customizer/single.php:34 inc/customizer/single.php:158
+msgid "Show modified date"
+msgstr "更新日を表示"
+
+#: inc/customizer/single.php:26 inc/customizer/single.php:150
+msgid "Show posted date"
+msgstr "公開日を表示"
+
+#: inc/customizer/header.php:136
+msgid "Buttons layout"
+msgstr "ボタン配置"
+
+#: inc/notice.php:13
+msgid "Go to the theme page"
+msgstr "テーマページへ"
+
+#: inc/notice.php:11
+msgid "Thank you for using \"Arkhe\" !"
+msgstr "「Arkhe」をご利用いただき、ありがとうございます！"
+
+#: inc/customizer/header.php:104
+msgid "Show menu button on PC"
+msgstr "メニューボタンをPCで表示する"
+
+#: inc/customizer/header.php:96
+msgid "Show menu button on SP"
+msgstr "メニューボタンをSPで表示する"
+
+#: inc/theme_support.php:88
+msgid "Huge"
+msgstr "巨大"
+
+#: inc/theme_support.php:76
+msgid "Extra large"
+msgstr "特大"
+
+#: inc/theme_support.php:70
+msgid "Large"
+msgstr "大"
+
+#: inc/theme_support.php:64
+msgid "Normal"
+msgstr "標準"
+
+#: inc/theme_support.php:58
+msgid "Small"
+msgstr "小"
+
+#: inc/theme_support.php:52
+msgid "Extra small"
+msgstr "極小"
+
+#: inc/customizer/post_list.php:21
+msgid "Archive"
+msgstr "アーカイブ"
+
+#: inc/customizer/single.php:89
+msgid "Show terms"
+msgstr "ターム情報を表示"
+
+#: inc/customizer/single.php:82
+msgid "Term information below the content"
+msgstr "本文下のターム情報"
+
+#: classes/Utility/Get.php:222 inc/theme_menu.php:54
+msgid "Licence registration"
+msgstr "ライセンス認証"
+
+#: inc/theme_menu.php:53
+msgctxt "tab"
+msgid "Information"
+msgstr "インフォメーション"
+
+#: inc/theme_menu.php:45
+msgid "See update information"
+msgstr "アップデート情報を見る"
+
+#: inc/theme_menu.php:41
+msgid "See the manual"
+msgstr "マニュアルを見る"
+
+#: inc/theme_menu.php:38
+msgid "To Arkhe official website"
+msgstr "Arkhe 公式サイトへ"
+
+#: inc/theme_menu/licence.php:121
+msgid "Check licence"
+msgstr "ライセンスを確認"
+
+#: inc/theme_menu/licence.php:102
+msgid "License key"
+msgstr "ライセンスキー"
+
+#: inc/theme_menu/licence.php:75 inc/theme_menu/licence.php:88
+msgid "Your license key is valid."
+msgstr "お使いのライセンスは有効です。"
+
+#: inc/theme_menu/licence.php:53
+msgid "There are too many authentication requests. Please wait a while and try again."
+msgstr "認証要求が多すぎます。しばらく待ってから再度お試しください。"
+
+#: inc/theme_menu/info.php:4
+msgid "Information about the theme"
+msgstr "テーマに関する情報"
+
+#: inc/theme_menu/info.php:21
+msgid "Arkhe plugin"
+msgstr "Arkhe プラグイン"
+
+#: inc/customizer/header.php:176
+msgid "Global navigation"
+msgstr "グローバルナビゲーション"
+
+#: inc/customizer/header.php:45
+msgid "The logo image can be set from the \"Site Identity\" menu."
+msgstr "ロゴ画像は「サイト基本情報」メニューで設定できます。"
+
+#: inc/custom_menu.php:12
+msgid "Inside the drawer menu"
+msgstr "ドロワーメニュー内"
+
+#: inc/custom_menu.php:11
+msgid "Global Navigation"
+msgstr "グローバルナビゲーション"
+
+#: inc/customizer/common.php:86
+msgid "Content width for 1 column (slim width)"
+msgstr "1カラム（スリム幅）時のコンテンツ幅"
+
+#: inc/widget.php:41 inc/widget.php:52
+msgid "Widgets in this area will be displayed in the footer."
+msgstr "このエリアのウィジェットは、フッターに表示されます。"
+
+#: inc/widget.php:30
+msgid "Widgets in this area will be displayed in bottom of the drawer menu."
+msgstr "このエリアのウィジェットは、ドロワーメニューの下部に表示されます。"
+
+#: inc/widget.php:28
+msgid "Bottom of Drawer menu"
+msgstr "ドロワーメニュー下部"
+
+#: inc/widget.php:19
+msgid "Widgets in this area will be displayed in the sidebar."
+msgstr "このエリアのウィジェットは、サイドバーに表示されます。"
+
+#: template-parts/footer/modals.php:14 template-parts/header/drawer_menu.php:37
+msgid "CLOSE"
+msgstr "閉じる"
+
+#: searchform.php:2
+msgid "Search word"
+msgstr "検索ワード"
+
+#: searchform.php:2
+msgid "Search"
+msgstr "検索"
+
+#: comments.php:21
+msgid "There are no comments for this post yet."
+msgstr "この投稿にはまだコメントがありません。"
+
+#: comments.php:9
+msgid "Comments"
+msgstr "コメント"
+
+#: classes/Data/Default_Data.php:24
+msgid "Home"
+msgstr "ホーム"
+
+#: classes/Widget/Recent_Posts.php:15
+msgid "Recent Posts"
+msgstr "最近の投稿"
+
+#: inc/customizer/sidebar.php:51
+msgid "Display on archive pages"
+msgstr "アーカイブページに表示する"
+
+#: inc/customizer/sidebar.php:35
+msgid "Display on pages"
+msgstr "固定ページに表示する"
+
+#: inc/customizer/sidebar.php:43
+msgid "Display on posts"
+msgstr "投稿ページに表示する"
+
+#: inc/customizer/sidebar.php:27
+msgid "Display on homepage"
+msgstr "トップページに表示する"
+
+#: inc/customizer/sidebar.php:20
+msgid "It is reflected in \"Default template\"."
+msgstr "「デフォルトテンプレート」に反映されます。"
+
+#: inc/customizer/sidebar.php:19
+msgid "Whether to show the sidebar"
+msgstr "サイドバーを表示するか"
+
+#: inc/customizer/sidebar.php:11 inc/widget.php:17
+msgid "Sidebar"
+msgstr "サイドバー"
+
+#: inc/customizer/common.php:152
+msgid "It is valid only when \"Post page\" is set."
+msgstr "「投稿ページ」が設定されている場合のみ有効です。"
+
+#: inc/customizer/common.php:151
+msgid "Display \"Post page\""
+msgstr "「投稿ページ」を表示する"
+
+#: inc/customizer/common.php:161 inc/customizer/footer.php:42
+msgid "Other settings"
+msgstr "その他の設定"
+
+#: inc/customizer/common.php:136
+msgid "\"Home\" string"
+msgstr "「ホーム」の文字列"
+
+#: inc/customizer/common.php:128
+msgid "Bottom of page"
+msgstr "ページ下部"
+
+#: inc/customizer/common.php:127
+msgid "Top of page"
+msgstr "ページ上部"
+
+#: inc/customizer/common.php:124
+msgid "Breadcrumbs position"
+msgstr "パンくずリストの位置"
+
+#: inc/customizer/common.php:117
+msgid "Breadcrumb list settings"
+msgstr "パンくずリスト設定"
+
+#: inc/customizer/common.php:107
+msgid "1600px or more recommended width."
+msgstr "横幅1600px以上を推奨。"
+
+#: inc/customizer/common.php:106
+msgid "\"NO-IMAGE\" image"
+msgstr "「NO-IMAGE」画像"
+
+#: inc/customizer/common.php:99
+msgid "NO-IMAGE settings"
+msgstr "NO-IMAGE 設定"
+
+#: inc/customizer/common.php:73
+msgid "Site width"
+msgstr "サイト幅"
+
+#: inc/customizer/common.php:66
+msgid "Content width"
+msgstr "コンテンツ幅"
+
+#: inc/customizer/common.php:49 inc/customizer/header.php:201
+#: inc/theme_support.php:114
+msgid "Background color"
+msgstr "背景色"
+
+#: inc/customizer/common.php:41 inc/theme_support.php:109
+msgid "Link color"
+msgstr "リンク色"
+
+#: inc/customizer/common.php:33 inc/customizer/header.php:210
+#: inc/theme_support.php:104
+msgid "Text color"
+msgstr "テキスト色"
+
+#: inc/customizer/common.php:25 inc/theme_support.php:99
+msgid "Main color"
+msgstr "メインカラー"
+
+#: inc/customizer/common.php:18 inc/customizer/footer.php:18
+#: inc/customizer/header.php:20
+msgid "Color settings"
+msgstr "色設定"
+
+#: inc/customizer/common.php:10
+msgid "Global settings"
+msgstr "全体設定"
+
+#: inc/customizer/footer.php:65
+msgid "Copyright text"
+msgstr "著作権テキスト"
+
+#: inc/customizer/footer.php:57
+msgid "Show button"
+msgstr "ボタンを表示する"
+
+#: inc/customizer/footer.php:50
+msgid "\"To the top\" button"
+msgstr "「ページトップへ」ボタン"
+
+#: inc/customizer/footer.php:10 inc/custom_menu.php:13 inc/widget.php:39
+#: inc/widget.php:50
+msgid "Footer"
+msgstr "フッター"
+
+#: inc/customizer/page.php:62
+msgid "Opacity"
+msgstr "不透明度"
+
+#: inc/customizer/page.php:55
+msgid "Color"
+msgstr "色"
+
+#: inc/customizer/page.php:54
+msgid "Color overlay"
+msgstr "カラーオーバーレイ"
+
+#: inc/customizer/page.php:47
+msgid "Dot"
+msgstr "ドット"
+
+#: inc/customizer/page.php:46
+msgid "None"
+msgstr "なし"
+
+#: inc/customizer/page.php:43
+msgid "Image filtering"
+msgstr "画像フィルター"
+
+#: inc/customizer/page.php:37
+msgid "Title background settings"
+msgstr "タイトル背景設定"
+
+#: inc/customizer/page.php:29
+msgid "Inside the content"
+msgstr "コンテンツ内部"
+
+#: inc/customizer/page.php:28
+msgid "Top of content"
+msgstr "コンテンツ上部"
+
+#: inc/customizer/page.php:25
+msgid "Position of title"
+msgstr "タイトル位置"
+
+#: inc/customizer/page.php:19
+msgid "Title settings"
+msgstr "タイトル設定"
+
+#: inc/customizer/page.php:11
+msgid "Pages"
+msgstr "固定ページ"
+
+#: inc/customizer/header.php:236
+msgid "Enable on Pages"
+msgstr "固定ページでも有効化する"
+
+#: inc/customizer/header.php:219
+msgid "Overlay settings"
+msgstr "オーバーレイ設定"
+
+#: inc/customizer/header.php:192
+msgid "Fixed global navigation at top of screen"
+msgstr "グローバルナビを画面上部に固定する"
+
+#: inc/customizer/header.php:159 inc/customizer/header.php:167
+msgid "Fixed header at top of screen"
+msgstr "ヘッダーを画面上部に固定する"
+
+#: inc/customizer/header.php:152
+msgid "Fixed header setting"
+msgstr "ヘッダーの固定設定"
+
+#: inc/customizer/header.php:183
+msgid "Move global navigation down"
+msgstr "グローバルナビを下側に移動する"
+
+#: inc/customizer/header.php:128
+msgid "Show search btn on PC"
+msgstr "検索ボタンをPCで表示する"
+
+#: inc/customizer/header.php:120
+msgid "Show search btn on SP"
+msgstr "検索ボタンをSPで表示する"
+
+#: inc/customizer/header.php:82
+msgid "Layout setting"
+msgstr "レイアウト設定"
+
+#: inc/customizer/header.php:52 inc/customizer/header.php:67
+msgid "Image size"
+msgstr "画像サイズ"
+
+#: inc/customizer/header.php:44
+msgid "Header logo settings"
+msgstr "ヘッダーロゴ設定"
+
+#: inc/customizer/header.php:11
+msgid "Header"
+msgstr "ヘッダー"
+
+#: inc/customizer/single.php:196
+msgid "Show comment area"
+msgstr "コメントエリアを表示"
+
+#: inc/customizer/single.php:189
+msgid "Comment area"
+msgstr "コメントエリア"
+
+#: inc/customizer/single.php:180
+msgid "Tag"
+msgstr "タグ"
+
+#: inc/customizer/single.php:179
+msgid "Category"
+msgstr "カテゴリー"
+
+#: inc/customizer/single.php:176
+msgid "How to get related posts"
+msgstr "関連記事の取得方法"
+
+#: inc/customizer/single.php:142
+msgid "Show related posts"
+msgstr "関連記事を表示"
+
+#: inc/customizer/single.php:135
+msgid "Related posts area"
+msgstr "関連記事エリア"
+
+#: inc/customizer/single.php:127
+msgid "Show author information"
+msgstr "投稿者情報を表示"
+
+#: inc/customizer/single.php:120
+msgid "Author information area"
+msgstr "投稿者情報エリア"
+
+#: inc/customizer/single.php:112
+msgid "Get only articles in the same category"
+msgstr "同じカテゴリーの記事のみを取得する"
+
+#: inc/customizer/single.php:104
+msgid "Show link"
+msgstr "リンクを表示"
+
+#: inc/customizer/single.php:97
+msgid "Link to previous/next article"
+msgstr "前/次の記事へのリンク"
+
+#: inc/customizer/single.php:74
+msgid "Show featured image"
+msgstr "アイキャッチ画像を表示"
+
+#: inc/customizer/single.php:50
+msgid "Show tags"
+msgstr "タグを表示"
+
+#: inc/customizer/single.php:19
+msgid "Information under the title"
+msgstr "タイトルの下の情報"
+
+#: inc/customizer/single.php:10
+msgid "Posts"
+msgstr "投稿ページ"
+
+#: inc/customizer/post_list.php:46
+msgid "Thumbnail image ratio"
+msgstr "サムネイル画像の比率"
+
+#: inc/customizer/post_list.php:101
+msgid "Number of characters in excerpt"
+msgstr "抜粋の文字数"
+
+#: inc/customizer/post_list.php:93 inc/customizer/single.php:66
+msgid "Show author"
+msgstr "投稿者情報を表示"
+
+#: inc/customizer/post_list.php:85 inc/customizer/single.php:42
+msgid "Show categories"
+msgstr "カテゴリーを表示"
+
+#: inc/customizer/post_list.php:77
+msgid "Show update date"
+msgstr "更新日を表示"
+
+#: inc/customizer/post_list.php:69
+msgid "Show publication date"
+msgstr "公開日を表示"
+
+#: inc/customizer/post_list.php:62
+msgid "Post information"
+msgstr "投稿の情報"
+
+#: classes/Data.php:209
+msgid "Text type"
+msgstr "テキスト型"
+
+#: classes/Data.php:208
+msgid "List type"
+msgstr "リスト型"
+
+#: classes/Data.php:207
+msgid "Card type"
+msgstr "カード型"
+
+#: inc/customizer/post_list.php:30 inc/customizer/single.php:166
+msgid "List layout"
+msgstr "リストのレイアウト"
+
+#: inc/customizer/post_list.php:8
+msgid "Golden ratio"
+msgstr "黄金比"
+
+#: inc/customizer/post_list.php:7
+msgid "Silver ratio"
+msgstr "白銀比"
+
+#: inc/output.php:17
+msgid "Skip to the content"
+msgstr "コンテンツへスキップ"
+
+#. translators: %s is the value of $searched_text.
+#: search.php:42
+msgid "Search results for %s"
+msgstr "%s の検索結果"
+
+#: inc/customizer/header.php:89 template-parts/header/btn/drawer.php:9
+msgid "Menu button"
+msgstr "メニューボタン"
+
+#: inc/customizer/header.php:113 searchform.php:3
+#: template-parts/header/btn/search.php:9
+msgid "Search button"
+msgstr "検索ボタン"
+
+#: template-parts/single/foot/post_author.php:12
+msgid "Author of this article"
+msgstr "この記事を書いた人"
+
+#: template-parts/single/foot/related_posts.php:72
+msgid "No related posts were found."
+msgstr "関連記事が見つかりませんでした。"
+
+#: template-parts/single/foot/related_posts.php:56
+msgid "Related posts"
+msgstr "関連記事"
+
+#: template-parts/post_list/main_query.php:28
+#: template-parts/post_list/sub_query.php:58
+msgid "No posts were found."
+msgstr "投稿が見つかりませんでした。"
+
+#: template-parts/other/author_box.php:45
+msgid "To article list"
+msgstr "記事一覧へ"
+
+#. Template Name of the theme
+msgid "One column(slim width)"
+msgstr "1カラム (スリム幅)"
+
+#. Template Name of the theme
+msgid "Two column"
+msgstr "2カラム"
+
+#. Template Name of the theme
+msgid "One column"
+msgstr "1カラム"
+
+#: 404.php:23
+msgid "Please enter a keyword below to search."
+msgstr "以下にキーワードを入力して検索してみてください。"
+
+#: 404.php:21
+msgid "The page you are looking for may have been moved or deleted."
+msgstr "お探しのページは移動または削除された可能性があります。"
+
+#: 404.php:12 template-parts/other/breadcrumb.php:283
+msgid "The page was not found."
+msgstr "ページが見つかりませんでした。"
+
+#: classes/Data.php:193
+msgid "Note : "
+msgstr "※ "
+
+#. Author URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://loos.co.jp/"
+msgstr "https://loos.co.jp/"
+
+#. Author of the theme
+#: style.css
+#, gp-priority: low
+msgid "LOOS,Inc."
+msgstr "LOOS,Inc."
+
+#. Theme URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://arkhe-theme.com/"
+msgstr "https://arkhe-theme.com/"

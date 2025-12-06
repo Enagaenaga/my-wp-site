@@ -1,0 +1,18 @@
+# WordPress環境切り替えスクリプト
+# 秘密情報を含むため、Gitにコミットしないでください
+
+# バックアップディレクトリ
+backups/
+
+# 環境設定ファイル
+.env
+
+# ログファイル
+*.log
+
+# Large files and backups
+*.zip
+*.sql
+*.gz
+wp-content - コピー/
+wp-content - コピー*/

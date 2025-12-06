@@ -1,0 +1,385 @@
+/*
+Theme Name: Arkhe Child
+Template: arkhe
+Version: 1.0.0
+Description: Arkhe用カスタマイズ子テーマ - エナガブログ
+Author: エナガブログ
+*/
+
+/************************************
+** CSS変数（デザイントークン）
+************************************/
+:root {
+    /* カラー */
+    --color-primary: #667eea;
+    --color-primary-dark: #5568d3;
+    --color-secondary: #764ba2;
+    --color-text: #2d3748;
+    --color-text-light: #4a5568;
+    --color-bg: #ffffff;
+    --color-bg-dark: #1a202c;
+
+    /* フォント */
+    --font-primary: 'Noto Sans JP', sans-serif;
+    --font-heading: 'Zen Kaku Gothic New', sans-serif;
+
+    /* フォントサイズ */
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+
+    /* スペーシング */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+}
+
+/************************************
+** 基本タイポグラフィ
+************************************/
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.75;
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    color: #1a202c;
+}
+
+h1 {
+    font-size: var(--font-size-4xl);
+    margin-top: 0;
+}
+
+h2 {
+    font-size: var(--font-size-3xl);
+    padding-bottom: 0.5em;
+    border-bottom: 3px solid var(--color-primary);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--color-secondary);
+}
+
+h3 {
+    font-size: var(--font-size-2xl);
+    padding-left: 1em;
+    border-left: 4px solid var(--color-primary);
+}
+
+h4 {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+}
+
+/************************************
+** ヘッダーデザイン
+************************************/
+.l-header,
+.site-header,
+header.l-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.l-header.scrolled {
+    padding: 5px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ロゴ */
+.c-logo__link,
+.site-title a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.c-logo__img,
+.custom-logo {
+    max-height: 60px;
+    transition: max-height 0.3s ease;
+}
+
+.l-header.scrolled .c-logo__img,
+.l-header.scrolled .custom-logo {
+    max-height: 45px;
+}
+
+/* ナビゲーション */
+.c-gnav,
+.l-header__nav {
+    display: flex;
+    align-items: center;
+}
+
+.c-gnav a,
+.l-header__nav a,
+.c-gnav__link {
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.c-gnav a:hover,
+.l-header__nav a:hover,
+.c-gnav__link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.c-gnav a::after,
+.c-gnav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.c-gnav a:hover::after,
+.c-gnav__link:hover::after {
+    width: 60%;
+}
+
+/************************************
+** フッターデザイン
+************************************/
+.l-footer,
+.site-footer,
+footer.l-footer {
+    background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%) !important;
+    color: #e2e8f0;
+    padding: 60px 0 0;
+    margin-top: 80px;
+}
+
+.l-footer a,
+.site-footer a {
+    color: #cbd5e0;
+    transition: color 0.3s ease;
+}
+
+.l-footer a:hover,
+.site-footer a:hover {
+    color: #ffffff;
+}
+
+.l-footer__bottom,
+.site-footer__bottom {
+    background: #1a202c;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a0aec0;
+    font-size: 14px;
+}
+
+/* フッターウィジェット */
+.widget-area.footer-widgets,
+.l-footer__widgets {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+}
+
+@media (max-width: 992px) {
+
+    .widget-area.footer-widgets,
+    .l-footer__widgets {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+
+    .widget-area.footer-widgets,
+    .l-footer__widgets {
+        grid-template-columns: 1fr;
+    }
+}
+
+/************************************
+** サイドバー
+************************************/
+.l-sidebar,
+#sidebar,
+aside.sidebar {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.widget {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.widget-title,
+.widget h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+}
+
+.widget-title::after,
+.widget h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--color-secondary);
+}
+
+/************************************
+** 記事カード
+************************************/
+.p-postList__item,
+.post-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.p-postList__item:hover,
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.p-postList__thumb img {
+    transition: transform 0.5s ease;
+}
+
+.p-postList__item:hover .p-postList__thumb img {
+    transform: scale(1.05);
+}
+
+/************************************
+** リンク
+************************************/
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+.entry-content a {
+    text-decoration: underline;
+    text-decoration-color: rgba(102, 126, 234, 0.3);
+    text-underline-offset: 3px;
+}
+
+.entry-content a:hover {
+    text-decoration-color: var(--color-secondary);
+}
+
+/************************************
+** 引用・コードブロック
+************************************/
+blockquote {
+    margin: 2em 0;
+    padding: 1.5em 2em;
+    background: rgba(102, 126, 234, 0.05);
+    border-left: 5px solid var(--color-primary);
+    font-style: italic;
+    color: var(--color-text-light);
+}
+
+code {
+    font-family: 'Courier New', monospace;
+    background: #f7fafc;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: #e53e3e;
+}
+
+pre {
+    background: #2d3748;
+    color: #e2e8f0;
+    padding: 1.5em;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 2em 0;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/************************************
+** レスポンシブ
+************************************/
+@media (max-width: 768px) {
+    :root {
+        --font-size-4xl: 1.875rem;
+        --font-size-3xl: 1.5rem;
+        --font-size-2xl: 1.25rem;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    .l-sidebar,
+    #sidebar {
+        width: 100%;
+        margin-top: 40px;
+    }
+}

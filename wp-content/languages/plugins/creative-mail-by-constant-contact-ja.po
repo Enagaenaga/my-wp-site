@@ -1,0 +1,631 @@
+# Translation of Plugins - Creative Mail – Easier WordPress &amp; WooCommerce Email Marketing - Stable (latest release) in Japanese
+# This file is distributed under the same license as the Plugins - Creative Mail – Easier WordPress &amp; WooCommerce Email Marketing - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-07-16 09:01:27+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/4.0.0-alpha.4\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Plugins - Creative Mail – Easier WordPress &amp; WooCommerce Email Marketing - Stable (latest release)\n"
+
+#: src/Managers/AdminManager.php:579 src/Managers/AdminManager.php:580
+msgid "Email Settings"
+msgstr "メール設定"
+
+#: src/Managers/AdminManager.php:573 src/Managers/AdminManager.php:574
+msgid "Social Booster"
+msgstr "ソーシャルブースター"
+
+#: src/Managers/AdminManager.php:567 src/Managers/AdminManager.php:568
+msgid "Logo Builder"
+msgstr "ロゴビルダー"
+
+#: src/Managers/AdminManager.php:525 src/Managers/AdminManager.php:526
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+#. Author URI of the plugin
+msgid "https://newfold.com/"
+msgstr "https://newfold.com/"
+
+#: src/views/unlink.php:22
+msgid "Are you sure you want to unlink your CreativeMail account from your WordPress site? This action is permanent and cannot be undone."
+msgstr "本当にCreativeMailアカウントとWordPressサイトのリンクを解除してもよろしいですか？この操作は永続的であり、元に戻すことはできません。"
+
+#: src/views/activated-integrations.php:245
+msgid "If you wish to stop contacts from being synced, please make sure to disable all WooCommerce emails from being handled by CreativeMail."
+msgstr "連絡先の同期を停止したい場合は、WooCommerce のすべてのメールが CreativeMail で処理されないように設定してください。"
+
+#: src/views/activated-integrations.php:242
+msgid "If you have enabled CreativeMail to handle WooCommerce emails, contacts' email addresses will continue to be synced."
+msgstr "CreativeMail で WooCommerce のメールを扱えるようにした場合、連絡先のメールアドレスは引き続き同期されます。"
+
+#: src/views/activated-integrations.php:239
+msgid "Before you disable the WooCommerce integration, please keep in mind the following:"
+msgstr "WooCommerce との連携を無効にする前に、以下の点にご注意ください:"
+
+#: src/views/activated-integrations.php:214
+msgid "Disabling WooCommerce"
+msgstr "WooCommerce の無効化"
+
+#: src/views/creative-mail-form-banner.php:21
+msgid "Show me how!"
+msgstr "やり方を見る"
+
+#: src/blocks/subscribe/block.json
+msgctxt "block title"
+msgid "Creative Mail"
+msgstr "Creative Mail"
+
+#: src/views/creative-mail-form-banner.php:67
+msgid "It’s that easy."
+msgstr "それはとても簡単なことです。"
+
+#: src/views/creative-mail-form-banner.php:56
+msgid "Adding a subscription form to your WordPress site is easy. Actually we’ve already prepared a form for you."
+msgstr "WordPress サイトに購読フォームを追加するのは簡単です。実はすでにフォームが用意されているのです。"
+
+#: src/views/creative-mail-form-banner.php:16
+msgid "The Creative Mail form is here!"
+msgstr "Creative Mail フォームはこちら !"
+
+#: src/views/creative-mail-form-banner.php:61
+msgid ""
+"Just go to any page on your site in the WordPress editor and click the “Add block” button. Select the\n"
+"                                Creative Mail contact form from the block recipes and you’re set."
+msgstr ""
+"WordPress のエディターでサイトの任意のページに移動し、 「ブロックを追加」 ボタンをクリックするだけです。その中から\n"
+"                                ブロックリストの中からCreative Mail のお問い合わせフォームを選択し、設定完了です。"
+
+#: src/blocks/subscribe/block.json
+msgctxt "block description"
+msgid "Let your contact subscribe to a mailing list for creative mail."
+msgstr "Creative なメールを送るために、連絡先にメーリングリストを登録させる。"
+
+#: src/views/creative-mail-form-banner.php:19
+msgid "Contacts that sign up can now be assigned to a contact list automatically. Add the Creative Mail block anywhere on your site."
+msgstr "登録したコンタクトは、自動的にコンタクトリストに割り当てることができるようになりました。 Creative Mail ブロックをサイト内の任意の場所に追加できます。"
+
+#: src/Managers/FormManager.php:93
+msgid "Could not retrieve data."
+msgstr "データを取得できませんでした。"
+
+#: src/views/password-protected-notice.php:15
+msgid "Go to Plugin Settings"
+msgstr "プラグインの設定に移動する"
+
+#: src/views/password-protected-notice.php:12
+msgid "Please disable the Password Protected plugin to start using CreativeMail."
+msgstr "CreativeMail の利用を開始するには、 Password Protected プラグインを無効にしてください。"
+
+#: src/views/password-protected-notice.php:9
+msgid "We see that you’re using the Password Protected plugin. Creative Mail needs to interact with your WordPress site but this plugin makes that impossible."
+msgstr "Password Protected プラグインをご使用のようですね。 Creative Mail は WordPress と連携する必要がありますが、このプラグインを使用すると連携が不可能になります。"
+
+#: src/Modules/WooCommerce/Emails/AbandonedCartEmail.php:14
+msgid "Send customers a reminder after they abandoned their shopping cart"
+msgstr "ショッピングカートを放置した顧客にリマインダを送る"
+
+#: src/Modules/WooCommerce/Emails/AbandonedCartEmail.php:13
+msgid "Abandoned cart"
+msgstr "放置されたカート"
+
+#: src/Managers/AdminManager.php:624
+msgid "please update your permalink settings"
+msgstr "パーマリンクの設定を更新してください"
+
+#: src/Managers/AdminManager.php:636
+msgid "Please disable this plugin to start using CreativeMail."
+msgstr "CreativeMail の利用を開始するには、このプラグインを無効にしてください。"
+
+#: src/Managers/AdminManager.php:636
+msgid "We see that you have the Password Protected plugin installed and activated on your WordPress site. While this plugin is active, CreativeMail wont be able to complete the setup since the Password Protected plugin is prohibiting us from interacting with your WordPress site."
+msgstr "お客様の WordPress サイトに Password Protected プラグインがインストールされ、有効になっていることがわかります。このプラグインが有効な場合、 CreativeMail はお客様の WordPress サイトとの対話を禁止しているため、設定を完了することができません。"
+
+#: src/Managers/AdminManager.php:624
+msgid "Ohoh, pretty permalinks are disabled. To enable the CreativeMail WooCommerce integration"
+msgstr "おっと、きれいなパーマリンクが無効になっていますね。CreativeMailのWooCommerce連携を有効にするには"
+
+#: src/Managers/AdminManager.php:561 src/Managers/AdminManager.php:562
+msgid "Automation"
+msgstr "自動化"
+
+#: src/Managers/AdminManager.php:543 src/Managers/AdminManager.php:544
+msgid "Contacts"
+msgstr "コンタクト"
+
+#: src/views/dashboard-open-creative-mail.php:15
+msgid "Open Creative Mail dashboard"
+msgstr "Creative Mail 設定を開く"
+
+#: src/views/activated-integrations.php:68
+msgid "Select one or more plugins to enable the synchronization of its contacts with Creative Mail."
+msgstr "Creative Mail とその連絡先の同期を有効にするプラグインを1つ以上選択します。"
+
+#: src/Managers/AdminManager.php:555 src/Managers/AdminManager.php:556
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: src/Managers/AdminManager.php:531 src/Managers/AdminManager.php:532
+msgid "Campaigns"
+msgstr "キャンペーン"
+
+#: src/Managers/CheckoutManager.php:292
+msgid "Invalid email."
+msgstr "メールアドレスが無効です。"
+
+#: src/Managers/CheckoutManager.php:151
+msgid "No thanks"
+msgstr "いいえ、結構です"
+
+#: src/Managers/CheckoutManager.php:151
+msgid "Your email and cart are saved so we can send you email reminders about this order."
+msgstr "お客様のメールアドレスとカートが保存され、この注文に関するお知らせをメールで送信することができます。"
+
+#: src/Managers/AdminManager.php:350
+msgid "I don’t have enough email contacts"
+msgstr "メールでの連絡先が少ない"
+
+#: src/Managers/AdminManager.php:349
+msgid "There were technical issues"
+msgstr "技術的な問題がありました"
+
+#: src/Managers/CheckoutManager.php:286 src/Managers/CheckoutManager.php:313
+#: src/Managers/FormManager.php:67 src/Managers/FormManager.php:87
+#: src/Managers/FormManager.php:103
+msgid "Invalid nonce."
+msgstr "Nonce が無効です。"
+
+#: src/Managers/AdminManager.php:347
+msgid "I didn’t like the email editor"
+msgstr "メールエディターが気に入らなかった"
+
+#: src/Managers/AdminManager.php:348
+msgid "It was too confusing"
+msgstr "あまりにもわかりにくい"
+
+#: src/Managers/AdminManager.php:346
+msgid "It didn’t have the features I want"
+msgstr "欲しい機能がなかった"
+
+#: src/Managers/EmailManager.php:175
+msgid "Manage all your email settings and templates with Creative Mail"
+msgstr "Creative Mail ですべてのメール設定とテンプレートを管理する"
+
+#: src/Managers/EmailManager.php:167
+msgid "Customize Emails"
+msgstr "メールをカスタマイズ"
+
+#: src/Managers/AdminManager.php:344
+msgid "Sadness... why leave so soon?"
+msgstr "悲しみ...なぜこんなに早く去ってしまうのか？"
+
+#. translators: %d item count
+#: src/Managers/CheckoutManager.php:707
+msgid "%d item from your previous order is currently unavailable and could not be added to your cart."
+msgid_plural "%d items from your previous order are currently unavailable and could not be added to your cart."
+msgstr[0] "以前のご注文中%d件の商品は現在ご購入いただけないため、お買い物カゴに追加できませんでした。"
+
+#: src/Managers/AdminManager.php:345
+msgid "I’m not sending email campaigns right now"
+msgstr "今すぐメールキャンペーンを送らない"
+
+#: src/views/pending-setup.php:16
+msgid "Having problems setting up your account, click the 'reset' button below to start over."
+msgstr "アカウント設定に問題がある場合は、下の 「リセット」 ボタンをクリックして、最初からやり直してください。"
+
+#: src/views/dashboard-open-creative-mail.php:40
+msgid "Email Automations"
+msgstr "メールの自動配信"
+
+#: src/views/dashboard-open-creative-mail.php:43
+msgid "Engage your audience without lifting a finger."
+msgstr "指一本動かすことなく、オーディエンスを魅了することができます。"
+
+#. translators: %s is the sent date of the campaign.
+#: src/Clients/CreativeMailClient.php:123
+msgid "Sent on %s"
+msgstr "%s へ送信"
+
+#. translators: %s is the date scheduled of the campaign.
+#: src/Clients/CreativeMailClient.php:118
+msgid "Scheduled on %s"
+msgstr "予約投稿日: %s"
+
+#: src/Clients/CreativeMailClient.php:113
+msgid "Draft"
+msgstr "下書き"
+
+#: src/views/settings-internal.php:67
+msgid "App Gateway"
+msgstr "アプリゲートウェイ"
+
+#: src/views/settings-internal.php:57
+msgid "App"
+msgstr "アプリ"
+
+#: src/views/settings-internal.php:47
+msgid "Plugin version"
+msgstr "プラグインのバージョン"
+
+#: src/views/settings-internal.php:38
+msgid "Environment"
+msgstr "環境"
+
+#: src/views/settings-internal.php:26
+msgid "Instance Id"
+msgstr "インスタンス ID"
+
+#: src/views/settings-internal.php:13
+msgid "Instance UUID"
+msgstr "インスタンスUUID"
+
+#: src/views/settings-internal.php:8
+msgid "Technical details"
+msgstr "技術情報"
+
+#: src/views/unlink.php:6
+msgid "Unlinking your account is permanent and cannot be undone."
+msgstr "アカウントのリンク解除は永久的に行われ、元に戻すことはできません。"
+
+#: src/views/unlink.php:3
+msgid ""
+"Your WordPress instance is connected to your Creative Mail account. If you would like to\n"
+"\t\tunlink your WordPress instance from your account, please click the \"Unlink\" button below."
+msgstr ""
+"WordPressのインスタンスは、 Creative Mail のアカウントに接続されています。もし、あなたが\n"
+"\t\t WordPress インスタンスとアカウントとのリンクを解除するには、以下の 「リンク解除」 ボタンをクリックしてください。"
+
+#: src/views/settings.php:88
+msgid "Customer Email Marketing"
+msgstr "顧客メールマーケティング"
+
+#: src/views/contact-sync.php:16
+msgid "Contact Sync"
+msgstr "Contact Sync"
+
+#: src/views/activated-integrations.php:187
+#: src/views/activated-integrations.php:253
+msgid "Got it!"
+msgstr "分かりました。"
+
+#: src/views/activated-integrations.php:177
+msgid "Getting your email delivered is important to us. We may contact you to review your list before we send your email, if you add contacts that are likely to cause higher than normal bounces or for other reasons that we know may cause spam complaints. Thanks for helping to eliminate spam."
+msgstr "お客様のメールを届けることは、私たちにとって重要なことです。通常よりも高いバウンスを引き起こす可能性のあるコンタクトを追加した場合、またはその他の理由でスパムに関する苦情が発生することがわかっている場合、メール送信前にお客様のリストを確認するためにご連絡を差し上げることがあります。スパムの排除にご協力いただき、ありがとうございます。"
+
+#: src/views/activated-integrations.php:172
+msgid "Role addresses, such as sales@ or marketing@, and distribution lists often mail to more than one person and result in higher than normal spam complaints. You must remove these from your list prior to upload."
+msgstr "sales@やmarketing@などのロールアドレスや配布リストは、複数の人にメールを送ることが多く、通常よりも高い迷惑メール苦情が寄せられる結果となります。アップロードの前に、リストからこれらを削除する必要があります。"
+
+#: src/views/activated-integrations.php:169
+msgid "I am not adding role addresses or distribution lists"
+msgstr "ロールアドレスや配信リストを追加していない"
+
+#: src/views/activated-integrations.php:162
+msgid "I have the consent of each contact on my list"
+msgstr "リスト上の各連絡先の同意を得ている"
+
+#: src/views/activated-integrations.php:156
+msgid "Each time you add contacts, they must meet the following conditions."
+msgstr "連絡先を追加するたびに、次の条件を満たす必要があります。"
+
+#: src/views/activated-integrations.php:124
+msgid "Yes, these contacts expect to hear from me"
+msgstr "はい、これらの連絡先は私からの連絡を期待しています。"
+
+#: src/views/admin-dashboard-widget/most-recent-campaigns.php:90
+msgid "Open Rate"
+msgstr "開封率"
+
+#: src/views/admin-dashboard-widget/no-campaign.php:7
+msgid "Create a campaign"
+msgstr "キャンペーンを作成する"
+
+#: src/views/admin-dashboard-widget/no-campaign.php:4
+msgid "Thanks for signing up with Creative Mail. Let’s create your first campaign!"
+msgstr "Creative Mail にご登録いただきありがとうございます。最初のキャンペーンを作成しましょう"
+
+#: src/views/admin-dashboard-widget/exception.php:10
+msgid "Please try again at a later time."
+msgstr "後日、再度お試しください。"
+
+#: src/views/admin-dashboard-widget/exception.php:7
+msgid "Creative Mail ran into an error."
+msgstr "Creative Mail でエラーが発生しました。"
+
+#: src/views/admin-dashboard-widget/campaigns.php:53
+#: src/views/admin-dashboard-widget/most-recent-campaigns.php:103
+msgid "View all campaigns"
+msgstr "全てのキャンペーンを見る"
+
+#: src/views/admin-dashboard-widget/campaigns.php:50
+#: src/views/admin-dashboard-widget/most-recent-campaigns.php:100
+msgid "Create a new campaign"
+msgstr "キャンペーンを作成する"
+
+#: src/views/admin-dashboard-widget/campaigns.php:41
+msgid "Inactive:"
+msgstr "一時停止中:"
+
+#: src/views/admin-dashboard-widget/campaigns.php:33
+msgid "Active:"
+msgstr "有効:"
+
+#: src/views/admin-dashboard-widget/campaigns.php:28
+#: src/views/admin-dashboard-widget/most-recent-campaigns.php:58
+msgid "Your recent campaigns"
+msgstr "最近行ったキャンペーン"
+
+#: src/views/admin-dashboard-widget/no-woocommerce.php:4
+msgid "Easily manage and brand all of your important transactional WooCommerce store emails."
+msgstr "WooCommerce ストアの重要なトランザクションメールをすべて簡単に管理し、ブランディングすることができます。"
+
+#: src/views/admin-dashboard-widget/woocommerce.php:37
+msgid "Inactive"
+msgstr "休止中"
+
+#: src/views/admin-dashboard-widget/woocommerce.php:25
+msgid "Active"
+msgstr "有効"
+
+#: src/views/admin-dashboard-widget/woocommerce.php:20
+msgid "Transactional WooCommerce email"
+msgstr "WooCommerce のトランザクションメール"
+
+#: src/views/admin-dashboard-widget/no-ce-account.php:7
+#: src/views/admin-dashboard-widget/no-woocommerce.php:7
+msgid "Let's go!"
+msgstr "それでは始めましょう。"
+
+#: src/views/admin-dashboard-widget/no-ce-account.php:4
+msgid "Our intelligent email editor makes it easy to create professional emails to engage your audience."
+msgstr "インテリジェントなメールエディターにより、読者を魅了するプロフェッショナルなメールを簡単に作成できます。"
+
+#: src/views/admin-get-started-banner.php:58
+msgid "Start free"
+msgstr "無料プランを開始"
+
+#: src/views/admin-dashboard-widget/exception.php:4
+msgid "Well... this is embarrassing!"
+msgstr "うーん...これは恥ずかしいなー"
+
+#: src/views/admin-get-started-banner.php:54
+msgid "Our intelligent email editor makes it easy to create a professional email."
+msgstr "インテリジェントなメールエディターで、プロフェッショナルなメールを簡単に作成することができます。"
+
+#: src/views/admin-get-started-banner.php:50
+msgid "Grow your business with Creative Mail"
+msgstr "Creative Mail でビジネスを発展させる"
+
+#: src/views/admin-feedback-notice/few-contacts.php:10
+msgid "These contacts are already in Creative Mail, send a quick campaign..."
+msgstr "これらの連絡先はすでにCreative Mailに登録されており、簡単なキャンペーンを送ることができます..."
+
+#: src/views/admin-feedback-notice/few-contacts.php:6
+msgid "Time for an audience shout out?"
+msgstr "観客の声援を受ける時間 ?"
+
+#: src/views/admin-feedback-notice/few-contacts.php:14
+#: src/views/admin-feedback-notice/many-contacts.php:21
+msgid "Get started"
+msgstr "今すぐ始める"
+
+#: src/views/admin-feedback-notice/many-contacts.php:17
+msgid "contacts are ready for a Creative Mail email campaign. Send one now!"
+msgstr "Creative Mailのメールキャンペーンの準備が整いました。今すぐ送信 !"
+
+#: src/views/admin-feedback-notice/many-contacts.php:10
+msgid "Your"
+msgstr "あなたの"
+
+#: src/views/admin-feedback-notice/many-contacts.php:6
+msgid "Awesome... your audience is growing!"
+msgstr "すごい ... 視聴者が増えてる !"
+
+#: src/views/admin-feedback-notice/sync-disabled.php:17
+msgid "Sync my contacts"
+msgstr "連絡先を同期させる"
+
+#: src/views/admin-feedback-notice/sync-disabled.php:12
+msgid "Grow your business or blog with the power of email marketing."
+msgstr "メールマーケティングの力で、あなたのビジネスやブログを成長させましょう。"
+
+#: src/views/admin-feedback-notice/sync-disabled.php:6
+msgid "Should we sync your contacts with"
+msgstr "連絡先を同期させるべきか？"
+
+#: src/views/dashboard.php:17 src/views/onboarding.php:17
+msgid "Intelligent email marketing for"
+msgstr "のためのインテリジェントなメールマーケティング"
+
+#. translators: Placeholder is a CreativeMail logo.
+#: src/Managers/AdminManager.php:680
+msgid "Email Marketing <span class=\"floater\">By<div class=\"ce4wp_dashboard_icon\"></div></span>"
+msgstr "E メールマーケティング <span class=\"floater\">By<div class=\"ce4wp_dashboard_icon\"></div></span>"
+
+#: src/Managers/AdminManager.php:354
+msgid "Close this window and deactivate Creative Mail"
+msgstr "このウィンドウを閉じ、 Creative Mail を無効にする"
+
+#: src/Managers/AdminManager.php:353
+msgid "Thank you"
+msgstr "ありがとうございます"
+
+#: src/Managers/AdminManager.php:352
+msgid "Other"
+msgstr "その他"
+
+#: src/Managers/AdminManager.php:351
+msgid "It’s a temporary deactivation"
+msgstr "一時的な無効化です"
+
+#: src/views/onboarding-content.php:28
+msgid "Creative Mail uses tools, including cookies, to improve the performance and experience of the product. For more information you can read our"
+msgstr "Creative Mailは、製品のパフォーマンスや使用感を向上させるために、Cookieを含むツールを使用しています。詳細については、当社の"
+
+#: src/views/onboarding-content.php:5
+msgid "The fine print:"
+msgstr "細かい文字"
+
+#: src/views/onboarding-content.php:2 src/views/password-protected-notice.php:2
+msgid "With Creative Mail your blog posts, store promotions, announcements, event updates and more can be delivered straight into the inbox of your customers and prospects."
+msgstr "Creative Mail では、ブログ記事、店舗プロモーション、お知らせ、イベント情報などを、顧客や見込み客の受信トレイに直接配信することができます。"
+
+#: src/views/dashboard.php:32
+msgid "Loading your account..."
+msgstr "アカウントを読み込み中 ...."
+
+#: src/views/dashboard-open-creative-mail.php:56
+msgid "Manage your contacts and email lists, all in one place."
+msgstr "連絡先やメールリストを一元管理。"
+
+#: src/views/dashboard-open-creative-mail.php:53
+msgid "Contact Management"
+msgstr "コンタクトマネジメント"
+
+#: src/views/dashboard-open-creative-mail.php:30
+msgid "Spice up your transactional WooCommerce store emails."
+msgstr "WooCommerce ストアのトランザクションメールにスパイスを。"
+
+#: src/views/dashboard-open-creative-mail.php:27
+msgid "WooCommerce emails"
+msgstr "WooCommerce emails"
+
+#: src/views/dashboard-open-creative-mail.php:19
+msgid "Or jump straight into:"
+msgstr "そのまま飛び込むことも :"
+
+#: src/views/dashboard-open-creative-mail.php:7
+msgid "Open your Creative Mail dashboard"
+msgstr "Creative Mail 設定を開く"
+
+#: src/views/dashboard-open-creative-mail.php:2
+msgid "You’re all set! Creative Mail and WordPress have been linked."
+msgstr "これで完了です !  クリエイティブメールと WordPress の連携が完了しました。"
+
+#: src/views/dashboard.php:19 src/views/onboarding.php:19
+msgid "WordPress and WooCommerce"
+msgstr "WordPress and WooCommerce"
+
+#: src/views/onboarding-content.php:30
+msgid "privacy notice"
+msgstr "プライバシーについて"
+
+#: src/views/onboarding-content.php:44
+msgid "I Agree and let's get started!"
+msgstr "同意します ! 今すぐ始める"
+
+#: src/views/pending-setup.php:13
+msgid "Get free email marketing, 98% deliverability, and the rock solid reliability all without ever needing to leave your WP Admin."
+msgstr "無料のメールマーケティング、98%の配信率、確かな信頼性を、WP 管理画面から離れることなく利用することができます。"
+
+#: src/views/pending-setup.php:8
+msgid ""
+"Our included CRM also intelligently pulls in and identifies your WordPress site contacts and WooCommerce store customers.\n"
+"    That makes it easy to build audiences and send targeted customer campaigns."
+msgstr ""
+"また、WordPress サイトの連絡先や WooCommerce ストアの顧客をインテリジェントに取り込み、識別する CRM も含まれています。\n"
+"  これにより、オーディエンスを構築し、ターゲットを絞った顧客キャンペーンを送信することが容易になります。"
+
+#: src/views/onboarding-content.php:16
+msgid "By using Creative Mail you’ll share basic information about your site (including your site name and URL) with Newfold Digital so that we can retrieve your blog posts, media files and store products for use in your emails;"
+msgstr "Creative Mail を利用することで、お客様のサイトに関する基本情報 (サイト名や URL など) を Newfold Digital と共有し、お客様のブログ記事、メディアファイル、メールに使用する製品を取得することができます"
+
+#: src/views/activated-integrations.php:165
+msgid "You must have the prior consent of each contact added to your Newfold Digital account. Your account cannot contain purchased, rented, third party or appended lists. In addition, you may not add auto-response addresses, transactional addresses, or user group addresses."
+msgstr "Newfold Digital のアカウントに追加された各連絡先の事前の同意が必要です。お客様のアカウントには、購入、レンタル、サードパーティ、または追加されたリストを含めることはできません。また、自動応答アドレス、取引用アドレス、ユーザーグループのアドレスを追加することはできません。"
+
+#: src/views/pending-setup.php:2
+msgid ""
+"Power your WooCommerce Store or WordPress Blog with our simple & free email marketing tool.\n"
+"    With the official Creative Mail for WooCommerce plugin, your products, blog posts, images and store links\n"
+"    are automatically included as rich shoppable email marketing content for your customers."
+msgstr ""
+"WooCommerce ストアや WordPress ブログで、シンプルで無料のメールマーケティングツールをご利用ください。\n"
+"  Creative Mail for WooCommerce のプラグインを使えば、商品、ブログ記事、画像、ストアへのリンクなど\n"
+"  は、自動的にリッチなショッピング可能なメールマーケティングコンテンツとして、顧客に提供されます。"
+
+#: src/views/settings.php:113
+msgid "Consent Text"
+msgstr "同意テキスト"
+
+#: src/views/settings.php:104
+msgid "Yes I want to ask my customers in the WooCommerce Checkout for consent to send marketing emails."
+msgstr "はい、 WooCommerce のチェックアウトで、マーケティングメールの送信に同意するかどうかを顧客に尋ねたいのです。"
+
+#: src/Managers/AdminManager.php:418
+msgid "Thank You"
+msgstr "ありがとうございます"
+
+#. translators: text.
+#: src/Managers/AdminManager.php:416
+msgid "If you like %1$s please leave us a %2$s rating. A huge thanks in advance!"
+msgstr "もし %1$s を気に入っていただけたなら、%2$s評価をつけていただけると嬉しいです。"
+
+#. Description of the plugin
+msgid "Free email marketing designed specifically for WordPress, Jetpack and WooCommerce. Send newsletters, promotions, updates and transactional e-commerce emails. Simple and easy, powered by Newfold Digital’s rock solid reliability."
+msgstr "WordPress、Jetpack、WooCommerce に特化した無料のメールマーケティングです。ニュースレター、プロモーション、アップデート、 E コマースのトランザクションのメールを送信します。シンプルで簡単、Newfold Digital の揺るぎない信頼性によって支えられています。"
+
+#: src/Managers/EmailManager.php:218
+msgid "Yes"
+msgstr "はい"
+
+#: src/Managers/EmailManager.php:218
+msgid "Enabled"
+msgstr "有効"
+
+#: src/Managers/EmailManager.php:216
+msgid "Manual"
+msgstr "手動"
+
+#: src/Managers/EmailManager.php:216
+msgid "Manually sent"
+msgstr "手動で送信"
+
+#: src/Managers/EmailManager.php:212
+msgid "Managed by CreativeMail"
+msgstr "Managed by CreativeMail"
+
+#: src/Managers/EmailManager.php:212
+msgid "Managed by Creative Mail"
+msgstr "Managed by Creative Mail"
+
+#: src/Managers/EmailManager.php:170 src/Managers/EmailManager.php:171
+msgid "Manage"
+msgstr "管理"
+
+#: src/Managers/EmailManager.php:659
+msgid " This email is being managed and sent by Creative Mail."
+msgstr "このメールは Creative Mail で管理・送信されています。"
+
+#: src/Managers/EmailManager.php:640
+msgid " (Managed by Creative Mail)"
+msgstr " (Managed by Creative Mail)"
+
+#: src/Managers/EmailManager.php:214 src/Managers/EmailManager.php:220
+msgid "Disabled"
+msgstr "無効化"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/creative-mail-by-constant-contact/"
+msgstr "https://wordpress.org/plugins/creative-mail-by-constant-contact/"
+
+#: src/Managers/ApiManager.php:77 src/Managers/ApiManager.php:97
+#: src/Managers/ApiManager.php:111 src/Managers/ApiManager.php:121
+msgid "Sorry, you are not allowed to do that."
+msgstr "その操作を実行する権限がありません。"
+
+#: src/Managers/AdminManager.php:586 src/Managers/AdminManager.php:587
+msgid "Settings"
+msgstr "設定"
+
+#. translators: text.
+#: src/Managers/AdminManager.php:417 src/Managers/AdminManager.php:513
+#: src/Managers/AdminManager.php:607 src/Managers/AdminManager.php:608
+#: src/Managers/EmailManager.php:150
+#: src/views/admin-feedback-notice/after-week-notice.php:8
+msgid "Creative Mail"
+msgstr "Creative Mail"

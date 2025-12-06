@@ -1,0 +1,233 @@
+/*
+Theme Name: Twenty Twenty-Four Child - Enaga Blog
+Theme URI: https://enaga-blog.com
+Description: エナガブログ用Twenty Twenty-Four子テーマ。サイト改善仕様書に基づいたカスタマイズを適用。
+Author: エナガブログ
+Author URI: https://enaga-blog.com
+Template: twentytwentyfour
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: twentytwentyfour-child
+*/
+
+/************************************
+** CSS変数定義
+************************************/
+:root {
+    /* カラーパレット */
+    --color-primary: #667eea;
+    --color-secondary: #764ba2;
+    --color-dark: #1a202c;
+    --color-dark-secondary: #2d3748;
+    --color-text: #2d3748;
+    --color-text-secondary: #4a5568;
+    --color-border: #e2e8f0;
+    --color-bg: #ffffff;
+    --color-bg-secondary: #f7fafc;
+
+    /* フォントファミリー */
+    --font-primary: 'Noto Sans JP', sans-serif;
+    --font-heading: 'Zen Kaku Gothic New', sans-serif;
+
+    /* フォントサイズ */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+
+    /* 行高 */
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+    --line-height-loose: 2;
+
+    /* 文字間隔 */
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.05em;
+}
+
+/************************************
+** タイポグラフィ
+************************************/
+body {
+    font-family: var(--font-primary) !important;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading) !important;
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+    color: var(--color-dark);
+}
+
+h1 {
+    font-size: var(--font-size-4xl);
+}
+
+h2 {
+    font-size: var(--font-size-3xl);
+    padding-bottom: 0.5em;
+    border-bottom: 3px solid var(--color-primary);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--color-secondary);
+}
+
+h3 {
+    font-size: var(--font-size-2xl);
+    padding-left: 1em;
+    border-left: 4px solid var(--color-primary);
+}
+
+h4 {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+}
+
+/************************************
+** ヘッダーデザイン
+************************************/
+.wp-block-template-part header,
+.site-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%) !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.site-header.scrolled {
+    padding: 10px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ロゴスタイル */
+.wp-block-site-logo img,
+.custom-logo {
+    max-height: 180px !important;
+    width: auto !important;
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+.site-header.scrolled .wp-block-site-logo img,
+.site-header.scrolled .custom-logo {
+    max-height: 135px !important;
+}
+
+/* ナビゲーション */
+.wp-block-navigation {
+    font-family: var(--font-primary);
+    font-weight: 600;
+}
+
+.wp-block-navigation a {
+    color: #ffffff !important;
+    padding: 12px 24px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.wp-block-navigation a:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/************************************
+** フッターデザイン
+************************************/
+.wp-block-template-part footer,
+.site-footer {
+    background: linear-gradient(180deg, var(--color-dark-secondary) 0%, var(--color-dark) 100%) !important;
+    color: #e2e8f0;
+    padding: 60px 0 20px;
+    margin-top: 80px;
+}
+
+.site-footer a {
+    color: #cbd5e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: #ffffff;
+}
+
+/************************************
+** カードデザイン
+************************************/
+.post-card,
+.wp-block-post {
+    background: var(--color-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.post-card:hover,
+.wp-block-post:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.post-card img,
+.wp-block-post-featured-image img {
+    transition: transform 0.5s ease;
+}
+
+.post-card:hover img,
+.wp-block-post:hover .wp-block-post-featured-image img {
+    transform: scale(1.1);
+}
+
+/************************************
+** レスポンシブデザイン
+************************************/
+@media (max-width: 768px) {
+    :root {
+        --font-size-4xl: 1.875rem;
+        --font-size-3xl: 1.5rem;
+        --font-size-2xl: 1.25rem;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    .wp-block-site-logo img,
+    .custom-logo {
+        max-height: 120px !important;
+    }
+
+    .site-header.scrolled .wp-block-site-logo img,
+    .site-header.scrolled .custom-logo {
+        max-height: 90px !important;
+    }
+}
