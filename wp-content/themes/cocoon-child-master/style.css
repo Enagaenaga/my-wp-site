@@ -19,26 +19,36 @@ Version:    1.1.3
 ** ヒーローセクション
 ************************************/
 .hero-section {
+  /* 通常フローでスクロール */
   position: relative;
   width: 100%;
-  height: 85vh;
-  /* 画面の85%の高さ */
-  min-height: 500px;
-  max-height: 900px;
+  height: 50vh;
+  min-height: 350px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
-  /* 重なり順を調整 - ナビゲーションより手前に */
-  z-index: 100;
-  position: relative;
-  background-color: #0e0e1e;
+  z-index: 1;
+  /* 宇宙イメージ背景 */
+  background-image: url('images/space-hero-bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 
-  /* ヘッダーとの重なりを防ぐために余白を追加 */
-  margin-top: 20px;
-  /* もしヘッダーが固定の場合は、ヘッダーの高さ分（約100px〜150px）余白を増やす必要があります */
-  /* padding-top: 100px; */
+/* hero-spacerは不要（非表示） */
+.hero-spacer {
+  display: none;
+}
+
+/* メインコンテンツ領域 */
+#content {
+  position: relative;
+  z-index: 10;
+  background-image: url('images/space-content-bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 /* 背景画像（パララックス用） */
@@ -47,14 +57,13 @@ Version:    1.1.3
   top: 0;
   left: 0;
   width: 100%;
-  height: 120%;
-  /* パララックス移動幅確保 */
-  background-size: cover;
-  background-position: center bottom;
+  height: 100%;
+  /* 画像全体を表示（切れない） */
+  background-size: contain;
+  background-position: center center;
   background-repeat: no-repeat;
   z-index: 1;
-  transform: translateZ(0);
-  /* GPUアクセラレーション */
+  transform: translateZ(0) scale(1.1);
   will-change: transform;
 }
 
@@ -293,9 +302,165 @@ Version:    1.1.3
    1. ヘッダー全体のスタイリング
 ======================================== */
 .header-container,
-.header {
+.header,
+#header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #8E2DE2 100%);
+  /* 一時的にrelativeに変更してスクロール問題を確認 */
+  position: relative;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* グローバルメニューがヘッダー外に移動した場合のスタイル */
+#navi.navi-moved {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #8E2DE2 100%);
   position: relative;
+  z-index: 999;
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* 通常状態のグローバルメニュー - ホバーエフェクト（ブラック反転） */
+#navi.navi-moved a:hover,
+#navi.navi-moved .menu-item:hover>a,
+#navi.navi-moved .navi-in a:hover,
+#navi a:hover,
+#navi .menu-item:hover>a {
+  background: rgba(0, 0, 0, 0.8) !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  color: #fff !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* 通常状態のサブメニューホバー */
+#navi.navi-moved .sub-menu a:hover,
+#navi .sub-menu a:hover,
+#navi ul ul a:hover {
+  background: rgba(0, 0, 0, 0.8) !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* グローバルメニューが固定された場合のスタイル */
+#navi.navi-fixed {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #8E2DE2 100%) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  padding: 10px 0;
+  animation: slideDown 0.3s ease;
+}
+
+/* 固定時のナビ内すべての子要素の背景を透明に（最高優先度） */
+#navi.navi-fixed *:not(.sub-menu):not(.sub-menu *) {
+  background-color: transparent !important;
+  background-image: none !important;
+  background: transparent !important;
+}
+
+/* 固定時のナビ内部コンテナも透明に */
+#navi.navi-fixed .navi-in,
+#navi.navi-fixed .navi-wrap,
+#navi.navi-fixed .menu-header,
+#navi.navi-fixed>div,
+#navi.navi-fixed>ul {
+  background-color: transparent !important;
+  background-image: none !important;
+  background: transparent !important;
+}
+
+/* ドロップダウンメニュー（サブメニュー）もパープルに */
+#navi.navi-fixed .sub-menu,
+#navi.navi-fixed ul ul,
+#navi.navi-fixed .navi-in ul ul {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #8E2DE2 100%) !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+#navi.navi-fixed .sub-menu li,
+#navi.navi-fixed .sub-menu a,
+#navi.navi-fixed ul ul li,
+#navi.navi-fixed ul ul a {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fixed時のホバーエフェクト - ブラック反転 */
+#navi.navi-fixed a:hover,
+#navi.navi-fixed .menu-item:hover>a,
+#navi.navi-fixed .navi-in a:hover {
+  background: rgba(0, 0, 0, 0.8) !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  color: #fff !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* Fixed時のサブメニューホバー */
+#navi.navi-fixed .sub-menu a:hover,
+#navi.navi-fixed ul ul a:hover {
+  background: rgba(0, 0, 0, 0.8) !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ヘッダー内のすべての子要素の背景を透明に */
+.header-container *,
+.header *,
+#header * {
+  background-color: transparent !important;
+}
+
+/* スクロール時のヘッダー変化 */
+.header-container.scrolled,
+.header.scrolled,
+#header.scrolled,
+.header-container.header-scrolled,
+.header.header-scrolled,
+#header.header-scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #5a6fd6 0%, #6a4190 50%, #7d28c8 100%);
+}
+
+/* スクロール時にヘッダーを隠す（オプション） */
+.header-container.header-hidden,
+.header.header-hidden,
+#header.header-hidden {
+  transform: translateY(-100%);
+}
+
+/* スクロール時のロゴサイズ変化 */
+.header-scrolled .site-name-text,
+.scrolled .site-name-text {
+  font-size: 2rem;
+}
+
+.header-scrolled .header-in,
+.scrolled .header-in {
+  padding: 10px 0 5px;
+}
+
+.header-scrolled #navi,
+.header-scrolled .navi-in,
+.scrolled #navi,
+.scrolled .navi-in {
+  padding: 10px 0 15px;
 }
 
 /* ヘッダー内の全テキストを白に */
@@ -319,6 +484,7 @@ Version:    1.1.3
   align-items: center;
   justify-content: center;
   padding: 20px 0 10px;
+  background: transparent !important;
 }
 
 .logo-header {
@@ -683,5 +849,2241 @@ Version:    1.1.3
   #navi,
   .navi-in {
     padding: 10px 5px 15px;
+  }
+}
+
+/************************************
+** カスタムフッターセクション
+************************************/
+
+/* ========================================
+   1. フッターセクション全体
+======================================== */
+.enaga-footer-section {
+  background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+  color: #e2e8f0;
+  padding: 60px 0 0;
+  margin-top: 0;
+}
+
+.enaga-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* ========================================
+   2. フッターカラム共通
+======================================== */
+.enaga-footer-column {
+  padding: 20px;
+}
+
+.enaga-footer-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #667eea;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+.enaga-footer-description {
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #cbd5e0;
+  font-size: 14px;
+}
+
+/* ========================================
+   3. ソーシャルアイコン
+======================================== */
+.enaga-footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.enaga-social-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(102, 126, 234, 0.2);
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.enaga-social-icon:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  color: #ffffff;
+}
+
+/* ========================================
+   4. フッターメニュー
+======================================== */
+.enaga-footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.enaga-footer-menu li {
+  margin-bottom: 12px;
+}
+
+.enaga-footer-menu li a {
+  color: #cbd5e0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding-left: 20px;
+  position: relative;
+  font-size: 14px;
+}
+
+.enaga-footer-menu li a::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  transition: left 0.3s ease;
+}
+
+.enaga-footer-menu li a:hover {
+  color: #ffffff;
+  padding-left: 25px;
+}
+
+.enaga-footer-menu li a:hover::before {
+  left: 5px;
+}
+
+/* ========================================
+   5. ニュースレター
+======================================== */
+.enaga-newsletter-signup {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.enaga-newsletter-signup h4 {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.enaga-newsletter-form {
+  display: flex;
+  gap: 10px;
+}
+
+.enaga-newsletter-form input {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.enaga-newsletter-form input::placeholder {
+  color: #a0aec0;
+}
+
+.enaga-newsletter-form input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.5);
+}
+
+.enaga-newsletter-form button {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.enaga-newsletter-form button:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* ========================================
+   6. Cocoonデフォルトフッタースタイル調整
+======================================== */
+#footer,
+.footer {
+  background: #1a202c !important;
+}
+
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom,
+.footer-bottom a,
+.footer .source-org,
+.footer .copyright {
+  color: #a0aec0 !important;
+}
+
+.footer .navi-footer-in a {
+  color: #cbd5e0 !important;
+  transition: color 0.3s ease;
+}
+
+.footer .navi-footer-in a:hover {
+  color: #667eea !important;
+}
+
+/* ========================================
+   7. レスポンシブ対応
+======================================== */
+@media (max-width: 992px) {
+  .enaga-footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .enaga-footer-about {
+    grid-column: 1 / -1;
+  }
+
+  .enaga-footer-social {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .enaga-footer-section {
+    padding: 40px 0 0;
+  }
+
+  .enaga-footer-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .enaga-footer-column {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .enaga-footer-title {
+    font-size: 16px;
+  }
+
+  .enaga-footer-menu li a {
+    padding-left: 0;
+  }
+
+  .enaga-footer-menu li a::before {
+    display: none;
+  }
+
+  .enaga-footer-social {
+    justify-content: center;
+  }
+
+  .enaga-newsletter-form {
+    flex-direction: column;
+  }
+
+  .enaga-newsletter-form button {
+    width: 100%;
+  }
+}
+
+/************************************
+** タイポグラフィ - グローバル設定
+************************************/
+
+/* ========================================
+   1. CSS変数（デザイントークン）
+======================================== */
+:root {
+  /* フォントファミリー */
+  --font-primary: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+
+  /* フォントサイズ */
+  --font-size-xs: 0.75rem;
+  /* 12px */
+  --font-size-sm: 0.875rem;
+  /* 14px */
+  --font-size-base: 1rem;
+  /* 16px */
+  --font-size-lg: 1.125rem;
+  /* 18px */
+  --font-size-xl: 1.25rem;
+  /* 20px */
+  --font-size-2xl: 1.5rem;
+  /* 24px */
+  --font-size-3xl: 1.875rem;
+  /* 30px */
+  --font-size-4xl: 2.25rem;
+  /* 36px */
+
+  /* 行高 */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  --line-height-loose: 2;
+
+  /* 文字間隔 */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.05em;
+
+  /* カラー */
+  --color-text-primary: #2d3748;
+  --color-text-secondary: #4a5568;
+  --color-text-muted: #718096;
+  --color-heading: #1a202c;
+  --color-link: #667eea;
+  --color-link-hover: #764ba2;
+  --color-accent: #667eea;
+  --color-accent-secondary: #764ba2;
+}
+
+/* ========================================
+   2. 基本テキスト
+======================================== */
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   3. 見出し（h1-h6）
+======================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.article h1,
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6,
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+  color: var(--color-heading);
+}
+
+/* H1 - ページタイトル */
+h1,
+.article h1,
+.entry-content h1,
+.entry-title {
+  font-size: var(--font-size-4xl);
+  letter-spacing: var(--letter-spacing-tight);
+  margin-top: 0;
+}
+
+/* H2 - セクション見出し */
+h2,
+.article h2,
+.entry-content h2 {
+  font-size: var(--font-size-3xl);
+  padding-bottom: 0.5em;
+  border-bottom: 3px solid var(--color-accent);
+  position: relative;
+}
+
+h2::after,
+.article h2::after,
+.entry-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: var(--color-accent-secondary);
+}
+
+/* H3 - サブセクション */
+h3,
+.article h3,
+.entry-content h3 {
+  font-size: var(--font-size-2xl);
+  padding-left: 1em;
+  border-left: 4px solid var(--color-accent);
+}
+
+/* H4 */
+h4,
+.article h4,
+.entry-content h4 {
+  font-size: var(--font-size-xl);
+  color: var(--color-accent);
+}
+
+/* H5 */
+h5,
+.article h5,
+.entry-content h5 {
+  font-size: var(--font-size-lg);
+}
+
+/* H6 */
+h6,
+.article h6,
+.entry-content h6 {
+  font-size: var(--font-size-base);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-text-secondary);
+}
+
+/* ========================================
+   4. 段落
+======================================== */
+p,
+.article p,
+.entry-content p {
+  margin-bottom: 1.5em;
+  line-height: var(--line-height-loose);
+}
+
+/* ========================================
+   5. 強調
+======================================== */
+strong,
+b {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+em,
+i {
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+/* ========================================
+   6. リンク
+======================================== */
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* 本文内のリンク */
+.entry-content a,
+.article a {
+  text-decoration: underline;
+  text-decoration-color: rgba(102, 126, 234, 0.3);
+  text-underline-offset: 3px;
+}
+
+.entry-content a:hover,
+.article a:hover {
+  text-decoration-color: var(--color-link-hover);
+}
+
+/* ========================================
+   7. リスト
+======================================== */
+ul,
+ol,
+.entry-content ul,
+.entry-content ol {
+  margin-bottom: 1.5em;
+  padding-left: 2em;
+}
+
+ul li,
+ol li,
+.entry-content ul li,
+.entry-content ol li {
+  margin-bottom: 0.5em;
+  line-height: var(--line-height-relaxed);
+}
+
+ul li,
+.entry-content ul li {
+  list-style-type: disc;
+}
+
+ul li::marker,
+.entry-content ul li::marker {
+  color: var(--color-accent);
+}
+
+ol li::marker,
+.entry-content ol li::marker {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* ========================================
+   8. 引用
+======================================== */
+blockquote,
+.entry-content blockquote {
+  margin: 2em 0;
+  padding: 1.5em 2em;
+  background: rgba(102, 126, 234, 0.05);
+  border-left: 5px solid var(--color-accent);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  border-radius: 0 8px 8px 0;
+}
+
+blockquote p:last-child,
+.entry-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   9. コード
+======================================== */
+code,
+.entry-content code {
+  font-family: var(--font-mono);
+  background: #f7fafc;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #e53e3e;
+  border: 1px solid #e2e8f0;
+}
+
+pre,
+.entry-content pre {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 1.5em;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2em 0;
+  font-family: var(--font-mono);
+  line-height: 1.6;
+}
+
+pre code,
+.entry-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  border: none;
+  font-size: 0.875rem;
+}
+
+/* ========================================
+   10. テーブル
+======================================== */
+table,
+.entry-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+th,
+td,
+.entry-content th,
+.entry-content td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th,
+.entry-content th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+tr:hover,
+.entry-content tr:hover {
+  background: rgba(102, 126, 234, 0.05);
+}
+
+/* ========================================
+   11. 記事タイトル特有のスタイル
+======================================== */
+.entry-title,
+.article-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-heading);
+  margin-bottom: 0.5em;
+}
+
+.entry-title a,
+.article-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.entry-title a:hover,
+.article-title a:hover {
+  color: var(--color-accent);
+}
+
+/* ========================================
+   12. レスポンシブタイポグラフィ
+======================================== */
+@media (max-width: 768px) {
+  :root {
+    --font-size-4xl: 1.875rem;
+    /* 30px */
+    --font-size-3xl: 1.5rem;
+    /* 24px */
+    --font-size-2xl: 1.25rem;
+    /* 20px */
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  h2::after,
+  .article h2::after,
+  .entry-content h2::after {
+    width: 60px;
+  }
+
+  blockquote,
+  .entry-content blockquote {
+    padding: 1em 1.5em;
+    margin: 1.5em 0;
+  }
+
+  pre,
+  .entry-content pre {
+    padding: 1em;
+    font-size: 0.8rem;
+  }
+}
+
+/************************************
+** 記事カードデザイン - フェーズ2
+************************************/
+
+/* ========================================
+   1. 記事カード基本スタイル
+======================================== */
+/* カードラッパー - Cocoonテーマ対応 */
+.entry-card-wrap,
+.ect-vertical-card .entry-card-wrap,
+.ect-3-columns .entry-card-wrap,
+.ect-tile-card .entry-card-wrap,
+.front-top-page .entry-card-wrap {
+  background: #C8A070;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  overflow: hidden;
+}
+
+/* カード本体 - 縦型レイアウトを強制 */
+.entry-card,
+.post-card,
+.related-entry-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: #C8A070;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border: none;
+}
+
+/* サムネイルを上部に配置（幅100%） */
+.entry-card-thumb,
+.entry-card .card-thumb {
+  width: 100% !important;
+  float: none !important;
+}
+
+.entry-card:hover,
+.post-card:hover,
+.ect-vertical-card .entry-card-wrap:hover,
+.ect-3-columns .entry-card-wrap:hover,
+.ect-tile-card .entry-card-wrap:hover,
+.front-top-page .entry-card-wrap:hover,
+.related-entry-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   2. サムネイル画像
+======================================== */
+.entry-card-thumb,
+.post-card-thumbnail,
+.related-entry-card-thumb,
+.widget-entry-card-thumb {
+  position: relative;
+  overflow: hidden;
+  background: #f7fafc;
+  border-radius: 12px 12px 0 0;
+}
+
+.entry-card-thumb img,
+.post-card-thumbnail img,
+.related-entry-card-thumb img,
+.widget-entry-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.entry-card:hover .entry-card-thumb img,
+.entry-card-wrap:hover .entry-card-thumb img,
+.related-entry-card:hover .related-entry-card-thumb img {
+  transform: scale(1.1);
+}
+
+/* ========================================
+   3. カテゴリバッジ
+======================================== */
+/* 共通スタイル */
+.cat-label,
+.category-badge,
+.cat-link {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: #ffffff !important;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  text-shadow: none;
+}
+
+/* サムネイル上のカテゴリバッジのみ絶対配置 */
+.entry-card-thumb .cat-label,
+.entry-card-thumb .category-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1;
+}
+
+.cat-label:hover,
+.category-badge:hover,
+.cat-link:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
+  transform: scale(1.05);
+  color: #ffffff !important;
+}
+
+/* 複数カテゴリの場合 */
+.entry-card-info .cat-label:not(:first-child) {
+  margin-left: 5px;
+}
+
+/* ========================================
+   4. カード内容
+======================================== */
+/* Cocoon親テーマのmargin-left: 330pxをオーバーライド */
+.ect-vertical-card .entry-card-content,
+.ect-3-columns .entry-card-content,
+.ect-tile-card .entry-card-content,
+.entry-card-content,
+.post-card-content,
+.related-entry-card-content {
+  margin-left: 0 !important;
+  padding: 20px;
+}
+
+.entry-card-title,
+.post-card-title,
+.related-entry-card-title,
+.widget-entry-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.entry-card-title a,
+.post-card-title a,
+.related-entry-card-title a,
+.widget-entry-card-title a {
+  color: var(--color-heading, #1a202c) !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.entry-card-title a:hover,
+.post-card-title a:hover,
+.related-entry-card-title a:hover,
+.widget-entry-card-title a:hover {
+  color: var(--color-accent, #667eea) !important;
+}
+
+.entry-card-snippet,
+.post-card-excerpt {
+  color: var(--color-text-secondary, #4a5568);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+/* ========================================
+   5. カードメタ情報
+======================================== */
+.entry-card-meta,
+.post-card-meta,
+.related-entry-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.entry-date,
+.post-card-date,
+.post-date,
+.entry-card-meta .post-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-muted);
+}
+
+.entry-date i,
+.post-card-date i,
+.post-date .fa,
+.post-date .fas {
+  color: var(--color-accent);
+}
+
+/* ========================================
+   6. 続きを読むボタン
+======================================== */
+.entry-card-more,
+.post-card-read-more,
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.3s ease, color 0.3s ease;
+  font-size: 14px;
+}
+
+.entry-card-more:hover,
+.post-card-read-more:hover,
+.read-more:hover {
+  gap: 10px;
+  color: var(--color-accent-secondary);
+}
+
+.entry-card-more::after,
+.post-card-read-more::after,
+.read-more::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.entry-card-more:hover::after,
+.read-more:hover::after {
+  transform: translateX(3px);
+}
+
+/* ========================================
+   7. グリッドレイアウト
+======================================== */
+.ect-vertical-card,
+.ect-3-columns,
+.ect-tile-card,
+.post-cards-grid,
+#list,
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+/* 2カラムレイアウト */
+.ect-2-columns,
+.related-entries {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* ========================================
+   8. 人気記事ウィジェット内のカード
+======================================== */
+.popular-entry-cards .entry-card-wrap,
+.widget .widget-entry-cards .widget-entry-card {
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.popular-entry-cards .entry-card-wrap:hover,
+.widget .widget-entry-cards .widget-entry-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   9. レスポンシブ対応
+======================================== */
+@media (max-width: 768px) {
+
+  .ect-vertical-card,
+  .ect-3-columns,
+  .ect-tile-card,
+  .post-cards-grid,
+  #list,
+  .list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ect-2-columns,
+  .related-entries {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .entry-card-content,
+  .post-card-content,
+  .related-entry-card-content {
+    padding: 20px;
+  }
+
+  .entry-card-title,
+  .post-card-title {
+    font-size: 16px;
+  }
+
+  .cat-label,
+  .category-badge {
+    padding: 4px 10px;
+    font-size: 11px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .entry-card:hover,
+  .entry-card-wrap:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 480px) {
+
+  .entry-card-meta,
+  .post-card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .entry-card-snippet {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+}
+
+/************************************
+** サイドバーウィジェット - フェーズ2
+************************************/
+
+/* ========================================
+   1. サイドバー全体
+======================================== */
+.sidebar,
+#sidebar,
+.sidebar-content {
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.enaga-sidebar-widget,
+.sidebar-widget {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.enaga-widget-title,
+.sidebar-widget-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-accent);
+  position: relative;
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+}
+
+.enaga-widget-title::after,
+.sidebar-widget-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--color-accent-secondary);
+}
+
+/* ========================================
+   2. プロフィールウィジェット
+======================================== */
+.enaga-profile-widget {
+  text-align: center;
+}
+
+.enaga-profile-widget .profile-avatar,
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--color-accent);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.enaga-profile-widget .profile-name,
+.profile-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--color-heading);
+}
+
+.enaga-profile-widget .profile-description,
+.profile-description {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.enaga-profile-widget .profile-social,
+.profile-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-link {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 50%;
+  color: var(--color-accent);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background: var(--color-accent);
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* ========================================
+   3. 人気記事ウィジェット
+======================================== */
+.enaga-popular-posts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.enaga-popular-post-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.enaga-popular-post-item:last-child {
+  border-bottom: none;
+}
+
+.enaga-popular-post-item .popular-post-thumbnail {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.popular-post-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.enaga-popular-post-item:hover .popular-post-thumbnail img {
+  transform: scale(1.05);
+}
+
+.popular-post-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.popular-post-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--color-heading);
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.popular-post-title:hover {
+  color: var(--color-accent);
+}
+
+.popular-post-date {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   4. カテゴリウィジェット
+======================================== */
+.widget_categories ul,
+.categories-widget ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.widget_categories li,
+.categories-widget li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.widget_categories li:last-child,
+.categories-widget li:last-child {
+  border-bottom: none;
+}
+
+.widget_categories a,
+.categories-widget a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.widget_categories a:hover,
+.categories-widget a:hover {
+  color: var(--color-accent);
+}
+
+/* ========================================
+   5. タグクラウド
+======================================== */
+.widget_tag_cloud .tagcloud,
+.tags-widget {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.widget_tag_cloud a,
+.tags-widget a {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(102, 126, 234, 0.1);
+  color: var(--color-accent);
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 13px !important;
+  transition: all 0.3s ease;
+}
+
+.widget_tag_cloud a:hover,
+.tags-widget a:hover {
+  background: var(--color-accent);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   6. サイドバーレスポンシブ
+======================================== */
+@media (max-width: 992px) {
+
+  .sidebar,
+  #sidebar,
+  .sidebar-content {
+    max-width: 100%;
+    margin-top: 60px;
+  }
+
+  .enaga-sidebar-widget,
+  .sidebar-widget {
+    padding: 20px;
+  }
+}
+
+/************************************
+** パンくずリスト - フェーズ2
+************************************/
+
+/* ========================================
+   1. パンくずリスト基本スタイル
+======================================== */
+.breadcrumbs,
+.breadcrumb,
+#breadcrumb {
+  background: rgba(102, 126, 234, 0.05);
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.breadcrumb-list,
+.breadcrumb-in,
+#breadcrumb ol,
+#breadcrumb ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.breadcrumb-list li,
+#breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-list li:not(:last-child)::after,
+#breadcrumb li:not(:last-child)::after {
+  content: '›';
+  margin-left: 10px;
+  color: var(--color-accent);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.breadcrumb-list a,
+#breadcrumb a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-list a:hover,
+#breadcrumb a:hover {
+  color: var(--color-accent-secondary);
+  text-decoration: underline;
+}
+
+.breadcrumb-current span,
+#breadcrumb li:last-child span {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* ========================================
+   2. パンくずリストアイコン
+======================================== */
+.breadcrumb-home-icon,
+#breadcrumb .fa-home {
+  margin-right: 5px;
+  color: var(--color-accent);
+}
+
+/* ========================================
+   3. パンくずリストレスポンシブ
+======================================== */
+@media (max-width: 576px) {
+
+  .breadcrumbs,
+  .breadcrumb,
+  #breadcrumb {
+    padding: 12px 15px;
+  }
+
+  .breadcrumb-list,
+  #breadcrumb ol,
+  #breadcrumb ul {
+    font-size: 13px;
+  }
+
+  .breadcrumb-current span,
+  #breadcrumb li:last-child span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+  }
+}
+
+/************************************
+** 検索機能強化 - フェーズ2
+************************************/
+
+/* ========================================
+   1. 検索バー強化
+======================================== */
+.search-wrapper,
+.search-form,
+.widget_search,
+.sidebar .search-form {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  z-index: 100;
+}
+
+.search-input-wrapper {
+  display: flex;
+  background: #ffffff;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.search-input-wrapper:focus-within {
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+.search-field,
+.search-box input[type="search"],
+input[name="s"] {
+  flex: 1;
+  padding: 15px 25px;
+  border: none;
+  font-size: 16px;
+  color: var(--color-text-primary);
+  background: transparent;
+}
+
+.search-field:focus,
+.search-box input[type="search"]:focus,
+input[name="s"]:focus {
+  outline: none;
+}
+
+.search-submit,
+.search-box button {
+  padding: 15px 25px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-submit:hover,
+.search-box button:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* ========================================
+   2. 検索サジェストボックス
+======================================== */
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  margin-top: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  display: none;
+  z-index: 99999;
+  /* 他の要素より確実に上に表示 */
+  isolation: isolate;
+}
+
+.search-suggestions.active {
+  display: block;
+}
+
+.search-suggestion-item {
+  display: block;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.search-suggestion-item:hover,
+.search-suggestion-item.focused {
+  background: rgba(102, 126, 234, 0.08);
+}
+
+.search-suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-title {
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.search-suggestion-item:hover .suggestion-title,
+.search-suggestion-item.focused .suggestion-title {
+  color: var(--color-accent);
+}
+
+.suggestion-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.suggestion-date i,
+.suggestion-category i {
+  margin-right: 4px;
+  color: var(--color-accent);
+}
+
+.search-no-result {
+  color: var(--color-text-muted);
+  text-align: center;
+  cursor: default;
+}
+
+.search-no-result:hover {
+  background: transparent;
+}
+
+/* ========================================
+   3. 検索レスポンシブ
+======================================== */
+@media (max-width: 768px) {
+  .search-input-wrapper {
+    flex-direction: column;
+    border-radius: 12px;
+  }
+
+  .search-field,
+  .search-box input[type="search"],
+  input[name="s"] {
+    padding: 12px 20px;
+  }
+
+  .search-submit,
+  .search-box button {
+    padding: 12px 20px;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .search-suggestions {
+    margin-top: 5px;
+    border-radius: 8px;
+    max-height: 300px;
+  }
+
+  .search-suggestion-item {
+    padding: 12px 15px;
+  }
+}
+
+/************************************
+** スクロールアニメーション - フェーズ3
+************************************/
+
+/* ========================================
+   1. 基本アニメーション設定
+======================================== */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: var(--animation-delay, 0s);
+}
+
+.animate-on-scroll.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   2. フェードインアニメーション
+======================================== */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  transition-delay: var(--animation-delay, 0s);
+}
+
+.fade-in.animate-visible {
+  opacity: 1;
+}
+
+/* ========================================
+   3. スライドインアニメーション
+======================================== */
+/* 左からスライド */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: var(--animation-delay, 0s);
+}
+
+.slide-in-left.animate-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 右からスライド */
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: var(--animation-delay, 0s);
+}
+
+.slide-in-right.animate-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 下からスライド */
+.slide-in-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: var(--animation-delay, 0s);
+}
+
+.slide-in-up.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   4. ズームインアニメーション
+======================================== */
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: var(--animation-delay, 0s);
+}
+
+.zoom-in.animate-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ========================================
+   5. 段階的表示（カードグリッド用）
+======================================== */
+.entry-card-wrap.animate-on-scroll:nth-child(1) {
+  --animation-delay: 0s;
+}
+
+.entry-card-wrap.animate-on-scroll:nth-child(2) {
+  --animation-delay: 0.1s;
+}
+
+.entry-card-wrap.animate-on-scroll:nth-child(3) {
+  --animation-delay: 0.2s;
+}
+
+.entry-card-wrap.animate-on-scroll:nth-child(4) {
+  --animation-delay: 0.3s;
+}
+
+.entry-card-wrap.animate-on-scroll:nth-child(5) {
+  --animation-delay: 0.4s;
+}
+
+.entry-card-wrap.animate-on-scroll:nth-child(6) {
+  --animation-delay: 0.5s;
+}
+
+/* ========================================
+   6. レスポンシブ対応
+======================================== */
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-on-scroll,
+  .fade-in,
+  .slide-in-left,
+  .slide-in-right,
+  .slide-in-up,
+  .zoom-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/************************************
+** ダークモード - フェーズ3
+************************************/
+
+/* ========================================
+   1. ダークモードトグルボタン（共通スタイル - 宇宙テーマ）
+======================================== */
+.dark-mode-toggle {
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 宇宙テーマ：深い紫から青のグラデーション */
+  background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+  box-shadow:
+    0 4px 20px rgba(79, 172, 254, 0.3),
+    0 0 40px rgba(147, 112, 219, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  /* 星のように瞬くアニメーション */
+  animation: starTwinkle 3s ease-in-out infinite;
+}
+
+/* 星のように瞬くアニメーション */
+@keyframes starTwinkle {
+
+  0%,
+  100% {
+    box-shadow:
+      0 4px 20px rgba(79, 172, 254, 0.3),
+      0 0 40px rgba(147, 112, 219, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  }
+
+  50% {
+    box-shadow:
+      0 0 30px rgba(79, 172, 254, 0.6),
+      0 0 60px rgba(147, 112, 219, 0.4),
+      0 0 80px rgba(255, 255, 255, 0.1),
+      inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* トグルボタン ホバー効果 */
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 0 35px rgba(79, 172, 254, 0.5),
+    0 0 70px rgba(147, 112, 219, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* トグルボタン アイコン */
+.dark-mode-toggle .toggle-icon {
+  font-size: 18px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dark-mode-toggle .dark-icon {
+  display: none;
+}
+
+.dark-mode-toggle .light-icon {
+  display: flex;
+}
+
+/* ----------------------------------------
+   1-1. フローティングトグル（画面右下固定）
+---------------------------------------- */
+.dark-mode-toggle-floating {
+  position: fixed;
+  bottom: 30px;
+  right: 55px;
+  width: 50px;
+  height: 50px;
+}
+
+/* ----------------------------------------
+   1-2. ヒーローセクション内トグル
+---------------------------------------- */
+.dark-mode-toggle-hero {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  /* ヒーローセクション内では少し明るく */
+  background: linear-gradient(135deg, rgba(26, 10, 46, 0.8) 0%, rgba(22, 33, 62, 0.8) 50%, rgba(15, 52, 96, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ダークモード時のトグルボタン */
+.dark-mode .dark-mode-toggle {
+  background: linear-gradient(135deg, #2d1b4e 0%, #1e3a5f 50%, #0d2137 100%);
+  border-color: rgba(147, 112, 219, 0.4);
+}
+
+.dark-mode .dark-mode-toggle-hero {
+  background: linear-gradient(135deg, rgba(45, 27, 78, 0.9) 0%, rgba(30, 58, 95, 0.9) 50%, rgba(13, 33, 55, 0.9) 100%);
+}
+
+.dark-mode .dark-mode-toggle .dark-icon {
+  display: flex;
+}
+
+.dark-mode .dark-mode-toggle .light-icon {
+  display: none;
+}
+
+/* ========================================
+   2. ダークモードカラースキーム
+======================================== */
+.dark-mode {
+  --color-text-primary: #e2e8f0;
+  --color-text-secondary: #a0aec0;
+  --color-text-muted: #718096;
+  --color-heading: #f7fafc;
+  --color-link: #90cdf4;
+  --color-link-hover: #63b3ed;
+  --color-accent: #90cdf4;
+  --color-accent-secondary: #63b3ed;
+}
+
+/* ========================================
+   3. 背景・サーフェス
+======================================== */
+.dark-mode body,
+.dark-mode #content {
+  background: #1a202c !important;
+  color: var(--color-text-primary);
+}
+
+.dark-mode .wrap,
+.dark-mode .content,
+.dark-mode .main,
+.dark-mode #main {
+  background: transparent;
+}
+
+/* カード */
+.dark-mode .entry-card-wrap,
+.dark-mode .entry-card,
+.dark-mode .related-entry-card,
+.dark-mode .widget,
+.dark-mode .sidebar-widget,
+.dark-mode .enaga-sidebar-widget {
+  background: #2d3748 !important;
+  color: #e2e8f0 !important;
+}
+
+/* サイドバー全体のテキスト色 */
+.dark-mode .sidebar,
+.dark-mode #sidebar,
+.dark-mode .sidebar-content {
+  color: #e2e8f0 !important;
+}
+
+/* サイドバーウィジェット内のテキスト */
+.dark-mode .sidebar a,
+.dark-mode #sidebar a,
+.dark-mode .widget a,
+.dark-mode .sidebar-widget a {
+  color: #90cdf4 !important;
+}
+
+.dark-mode .sidebar a:hover,
+.dark-mode #sidebar a:hover,
+.dark-mode .widget a:hover,
+.dark-mode .sidebar-widget a:hover {
+  color: #63b3ed !important;
+}
+
+/* ウィジェットタイトル */
+.dark-mode .entry-card-title a,
+.dark-mode .entry-card-title,
+.dark-mode .widget-title,
+.dark-mode .enaga-widget-title,
+.dark-mode .sidebar-widget-title,
+.dark-mode .widget h2,
+.dark-mode .widget h3,
+.dark-mode .widget h4 {
+  color: #f7fafc !important;
+}
+
+/* ウィジェット内のテキスト */
+.dark-mode .widget li,
+.dark-mode .widget p,
+.dark-mode .widget span,
+.dark-mode .sidebar-widget li,
+.dark-mode .sidebar-widget p,
+.dark-mode .sidebar-widget span,
+.dark-mode .profile-description,
+.dark-mode .profile-name,
+.dark-mode .popular-post-title,
+.dark-mode .popular-post-date,
+.dark-mode .widget_categories li,
+.dark-mode .widget_recent_entries li,
+.dark-mode .widget_archive li,
+.dark-mode .widget_meta li {
+  color: #e2e8f0 !important;
+}
+
+.dark-mode .entry-card-snippet,
+.dark-mode .card-snippet {
+  color: #a0aec0;
+}
+
+/* ========================================
+   4. ヘッダー・フッター
+======================================== */
+.dark-mode .header,
+.dark-mode #header,
+.dark-mode .header-container {
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%) !important;
+}
+
+.dark-mode .enaga-footer-section {
+  background: linear-gradient(180deg, #1a202c 0%, #0d1117 100%);
+}
+
+/* ========================================
+   5. テキスト・リンク
+======================================== */
+.dark-mode a {
+  color: var(--color-link);
+}
+
+.dark-mode a:hover {
+  color: var(--color-link-hover);
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+  color: var(--color-heading);
+}
+
+.dark-mode p,
+.dark-mode li {
+  color: var(--color-text-primary);
+}
+
+/* ========================================
+   6. フォーム・入力
+======================================== */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background: #2d3748;
+  border-color: #4a5568;
+  color: var(--color-text-primary);
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   7. ボーダー・区切り線
+======================================== */
+.dark-mode .entry-card-meta,
+.dark-mode hr,
+.dark-mode .border-element {
+  border-color: #4a5568 !important;
+}
+
+/* ========================================
+   8. 検索サジェスト
+======================================== */
+.dark-mode .search-suggestions {
+  background: #2d3748;
+  border: 1px solid #4a5568;
+}
+
+.dark-mode .search-suggestion-item {
+  border-color: #4a5568;
+}
+
+.dark-mode .search-suggestion-item:hover,
+.dark-mode .search-suggestion-item.focused {
+  background: #4a5568;
+}
+
+/* ========================================
+   9. パンくずリスト
+======================================== */
+.dark-mode .breadcrumb,
+.dark-mode #breadcrumb {
+  background: rgba(45, 55, 72, 0.5);
+}
+
+.dark-mode .breadcrumb a,
+.dark-mode #breadcrumb a {
+  color: var(--color-link);
+}
+
+/* ========================================
+   10. レスポンシブ対応
+======================================== */
+@media (max-width: 768px) {
+  .dark-mode-toggle {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .dark-mode-toggle .toggle-icon {
+    font-size: 18px;
+  }
+}
+
+/************************************
+** 画像遅延読み込み - フェーズ3
+************************************/
+
+/* 遅延読み込み画像の基本スタイル */
+img.lazy-load {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+img.lazy-loaded,
+img.lazy-load.loaded {
+  opacity: 1;
+}
+
+/* 読み込み中のプレースホルダー */
+img[data-src] {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* 読み込み完了後はアニメーション停止 */
+img.lazy-loaded,
+img:not([data-src]) {
+  animation: none;
+  background: none;
+}
+
+/************************************
+** ページ遷移アニメーション
+************************************/
+.page-content,
+.content,
+#content-in,
+.main,
+#main {
+  animation: fadeInPage 0.5s ease;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ローディングスピナー */
+.loading-spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(102, 126, 234, 0.2);
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/************************************
+** アクセシビリティ対応
+************************************/
+
+/* ========================================
+   1. スキップリンク
+======================================== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background: #667eea;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  z-index: 100000;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ========================================
+   2. フォーカススタイル
+======================================== */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* フォーカスリング（キーボードナビゲーション用） */
+:focus-visible {
+  outline: 3px solid #667eea;
+  outline-offset: 3px;
+}
+
+/* マウスクリック時はフォーカスリングを非表示 */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ========================================
+   3. スクリーンリーダー専用テキスト
+======================================== */
+.sr-only,
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========================================
+   4. 高コントラストモード対応
+======================================== */
+@media (prefers-contrast: high) {
+
+  .entry-card,
+  .widget,
+  .sidebar-widget {
+    border: 2px solid currentColor;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/************************************
+** 印刷用スタイル
+************************************/
+@media print {
+
+  /* 非表示にする要素 */
+  #navi,
+  .header-container,
+  .sidebar,
+  #sidebar,
+  .footer,
+  #footer,
+  .enaga-footer-section,
+  .dark-mode-toggle,
+  .hero-section,
+  .search-form,
+  .related-entries,
+  .comment-form,
+  .pagination {
+    display: none !important;
+  }
+
+  /* 基本スタイル */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+
+  /* リンクURLを表示 */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  /* ページ余白 */
+  @page {
+    margin: 2cm;
+  }
+
+  /* 見出し */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    color: #000000 !important;
+  }
+
+  /* 画像 */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* 段落 */
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* コンテンツエリア */
+  #content,
+  .entry-content,
+  .article {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }

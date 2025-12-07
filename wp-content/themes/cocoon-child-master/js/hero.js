@@ -1,120 +1,73 @@
 
 /**
- * Hero Section Animation
+ * Hero Section Animation - 通常スクロール方式
+ * ヒーローは通常のドキュメントフローでスクロール
+ * パララックス効果は無効化
  */
 document.addEventListener('DOMContentLoaded', function () {
 
-    // 1. パララックス効果
     const heroBg = document.querySelector('.hero-bg');
-    if (heroBg) {
+    const heroSection = document.querySelector('.hero-section');
+    const heroOverlay = document.querySelector('.hero-overlay');
+
+    if (heroSection) {
+        const heroHeight = heroSection.offsetHeight;
+
+        function updateHeroOnScroll() {
+            const scrollY = window.pageYOffset || window.scrollY;
+            const scrollRatio = Math.min(scrollY / heroHeight, 1);
+
+            // フェードアウト効果（軽微）
+            const opacity = Math.max(0.5, 1 - scrollRatio * 0.5);
+            heroSection.style.opacity = opacity;
+
+            // パララックス効果を無効化（コメントアウト）
+            // if (heroBg) {
+            //     const parallax = scrollY * 0.4;
+            //     heroBg.style.transform = 'translateY(' + parallax + 'px) scale(1.1)';
+            // }
+
+            // オーバーレイを暗くする（軽微）
+            if (heroOverlay) {
+                const overlayOpacity = Math.min(0.6, 0.3 + scrollRatio * 0.3);
+                heroOverlay.style.background = 'rgba(14, 14, 30, ' + overlayOpacity + ')';
+            }
+        }
+
+        // スクロールイベント（パッシブで軽量）
+        let ticking = false;
         window.addEventListener('scroll', function () {
-            const scrollPosition = window.pageYOffset;
-            // スクロール速度の0.4倍で移動（パララックス効果）
-            heroBg.style.transform = 'translate3d(0, ' + (scrollPosition * 0.4) + 'px, 0)';
-        });
+            if (!ticking) {
+                requestAnimationFrame(function () {
+                    updateHeroOnScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // 初期状態
+        updateHeroOnScroll();
     }
 
-    // 2. particles.js 初期化
+    // ========================================
+    // particles.js 初期化
+    // ========================================
     if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
         particlesJS('particles-js', {
             "particles": {
-                "number": {
-                    "value": 30, // パーティクル数（軽量化のため少なめに）
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": ["#ffffff", "#00C6FF", "#8E2DE2"] // 白、水色、紫
-                },
-                "shape": {
-                    "type": ["circle", "triangle"], // 円と三角形
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": true,
-                    "anim": {
-                        "enable": true,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 4, // 少し大きめ
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.3,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2, // ゆっくり動く
-                    "direction": "none",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
+                "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": ["#ffffff", "#00C6FF", "#8E2DE2", "#667eea"] },
+                "shape": { "type": ["circle", "triangle"], "stroke": { "width": 0 } },
+                "opacity": { "value": 0.6, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1 } },
+                "size": { "value": 4, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "out_mode": "out" }
             },
             "interactivity": {
                 "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab" // ホバーで線をつなぐ
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 140,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
             },
             "retina_detect": true
         });
