@@ -3087,3 +3087,16 @@ textarea:focus,
     padding: 0 !important;
   }
 }
+
+/************************************
+** ハンバーガーアイコン非表示
+************************************/
+/* MENUメニューアイテムのハンバーガーアイコン（3本線）を非表示 */
+/* li要素に直接fa fa-barsクラスが付いている場合 */
+#navi li.fa.fa-bars::before,
+.navi-in li.fa.fa-bars::before,
+#menu-item-322::before,
+li.menu-item.fa.fa-bars::before {
+  display: none !important;
+  content: none !important;
+}
