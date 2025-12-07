@@ -160,4 +160,66 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     console.log('Header script initialized');
+
+    // ==============================================
+    // アフェリエイト広告通知の背景色を統一
+    // ==============================================
+    function updateAffiliateNoticeStyle() {
+        // .text-mobile要素を取得
+        const textMobileElements = document.querySelectorAll('.text-mobile');
+        const widgetMobileTextElements = document.querySelectorAll('.widget_mobile_text');
+        const allTargetElements = document.querySelectorAll('#mobile_text-2, .widget_mobile_text, aside.widget_mobile_text');
+
+        const isDarkMode = document.documentElement.classList.contains('dark-mode') ||
+            document.body.classList.contains('dark-mode');
+
+        const bgColor = isDarkMode ? '#1a1a25' : '#f5f0e8';
+        const textColor = isDarkMode ? '#a0a0b0' : '#5a5045';
+
+        // .text-mobile要素にスタイルを適用
+        textMobileElements.forEach(function (el) {
+            el.style.setProperty('background-color', bgColor, 'important');
+            el.style.setProperty('background', bgColor, 'important');
+            el.style.setProperty('color', textColor, 'important');
+            el.style.setProperty('border', 'none', 'important');
+        });
+
+        // .widget_mobile_text要素にスタイルを適用
+        widgetMobileTextElements.forEach(function (el) {
+            el.style.setProperty('background-color', bgColor, 'important');
+            el.style.setProperty('background', bgColor, 'important');
+            el.style.setProperty('color', textColor, 'important');
+            el.style.setProperty('border', 'none', 'important');
+        });
+
+        // その他の要素にもスタイルを適用
+        allTargetElements.forEach(function (el) {
+            el.style.setProperty('background-color', bgColor, 'important');
+            el.style.setProperty('background', bgColor, 'important');
+            el.style.setProperty('color', textColor, 'important');
+            el.style.setProperty('border', 'none', 'important');
+        });
+
+        console.log('Affiliate notice style updated:', textMobileElements.length, 'elements found');
+    }
+
+    // 初回実行
+    updateAffiliateNoticeStyle();
+
+    // 少し遅延してから再実行（動的読み込み対応）
+    setTimeout(updateAffiliateNoticeStyle, 500);
+    setTimeout(updateAffiliateNoticeStyle, 1000);
+    setTimeout(updateAffiliateNoticeStyle, 2000);
+
+    // ダークモード切り替え時に再実行
+    const observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            if (mutation.attributeName === 'class') {
+                updateAffiliateNoticeStyle();
+            }
+        });
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+    observer.observe(document.body, { attributes: true });
 });

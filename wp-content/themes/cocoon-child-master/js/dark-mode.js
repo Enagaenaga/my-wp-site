@@ -51,6 +51,29 @@ document.addEventListener('DOMContentLoaded', function () {
         return window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
 
+    // ヒーローセクションの背景画像を切り替え
+    function updateHeroBackground(isDark) {
+        const heroBg = document.querySelector('.hero-bg');
+        if (!heroBg) return;
+
+        // 現在の背景画像URLを取得
+        const currentBg = heroBg.style.backgroundImage;
+
+        // テーマディレクトリのパスを取得
+        const themeDir = currentBg.match(/url\(['"]?(.*?\/themes\/cocoon-child-master\/)/);
+        if (!themeDir) return;
+
+        const basePath = themeDir[1];
+
+        if (isDark) {
+            // ダークモード: 夜景画像に切り替え
+            heroBg.style.backgroundImage = `url('${basePath}images/hero-bg-dark.jpg')`;
+        } else {
+            // ライトモード: 通常画像に戻す
+            heroBg.style.backgroundImage = `url('${basePath}images/hero-bg.jpg')`;
+        }
+    }
+
     // ダークモードを適用
     function applyDarkMode(isDark) {
         if (isDark) {
@@ -61,6 +84,9 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.classList.remove(DARK_CLASS);
         }
         localStorage.setItem(DARK_MODE_KEY, isDark);
+
+        // ヒーローセクションの背景画像を切り替え
+        updateHeroBackground(isDark);
     }
 
     // ダークモードをトグル
