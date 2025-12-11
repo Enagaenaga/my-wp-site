@@ -1,156 +1,309 @@
 <?php //子テーマのfunctions.php
+
 if ( !defined( 'ABSPATH' ) ) exit;
+
+
 
 error_log('DEBUG: Cocoon Child functions.php loaded at ' . date('Y-m-d H:i:s'));
 
+
+
 // ヒーローセクション用スクリプト読み込み
+
 function enqueue_hero_scripts() {
+
   if ( is_front_page() || is_home() ) {
+
     // particles.js (CDN)
+
     wp_enqueue_script( 'particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js', array(), '2.0.0', true );
+
     
+
     // 自作アニメーションスクリプト
+
     wp_enqueue_script( 'hero-js', get_stylesheet_directory_uri() . '/js/hero.js', array('particles-js'), '1.0.3', true );
+
   }
+
 }
+
 add_action( 'wp_enqueue_scripts', 'enqueue_hero_scripts' );
 
+
+
 // ヘッダー機能スクリプト読み込み（全ページ）
+
 function enqueue_header_scripts() {
+
     wp_enqueue_script( 
+
         'header-js', 
+
         get_stylesheet_directory_uri() . '/js/header.js', 
+
         array(), 
+
         '1.0.0', 
+
         true 
+
     );
+
 }
+
 add_action( 'wp_enqueue_scripts', 'enqueue_header_scripts' );
 
+
+
 // 子テーマstyle.cssのキャッシュ破棄（バージョン番号更新）
+
 function enqueue_child_theme_style() {
+
     wp_enqueue_style(
+
         'cocoon-child-style',
+
         get_stylesheet_uri(),
+
         array('cocoon-style'),
+
         '2.0.' . time()  // 毎回新しいバージョンを生成してキャッシュを破棄
+
     );
+
 }
+
 add_action( 'wp_enqueue_scripts', 'enqueue_child_theme_style', 20 );
 
+
+
 // ヘッダー高さ30px強制適用（インラインスタイル - 最高優先度）
+
 function enaga_header_inline_styles() {
+
     ?>
+
     <style id="enaga-header-override">
+
         /* ヘッダー高さ30px強制適用 */
+
         #header,
+
         .header,
+
         header#header,
+
         .header-container #header {
+
             height: 30px !important;
+
             min-height: 30px !important;
+
             max-height: 30px !important;
+
             overflow: hidden !important;
+
         }
+
         .header-in,
+
         #header-in {
+
             height: 30px !important;
+
             padding: 0 !important;
+
             display: flex !important;
+
             flex-direction: row !important;
+
             align-items: center !important;
+
             justify-content: center !important;
+
             overflow: hidden !important;
+
         }
+
         .site-name-text {
+
             font-size: 0.9rem !important;
+
             line-height: 1 !important;
+
             margin: 0 !important;
+
             padding: 0 !important;
+
         }
+
         .tagline {
+
             font-size: 0.5rem !important;
+
             line-height: 1 !important;
+
             margin: 0 0 0 10px !important;
+
             padding: 0 !important;
+
         }
+
     </style>
+
     <?php
+
 }
+
 add_action( 'wp_head', 'enaga_header_inline_styles', 9999 );
 
+
+
 // 検索機能強化スクリプト読み込み
+
 function enqueue_search_scripts() {
+
     wp_enqueue_script( 
+
         'search-js', 
+
         get_stylesheet_directory_uri() . '/js/search.js', 
+
         array(), 
+
         '1.0.0', 
+
         true 
+
     );
+
 }
+
 add_action( 'wp_enqueue_scripts', 'enqueue_search_scripts' );
 
+
+
 // アニメーションスクリプト読み込み
+
 function enqueue_animation_scripts() {
+
     wp_enqueue_script( 
+
         'animations-js', 
+
         get_stylesheet_directory_uri() . '/js/animations.js', 
+
         array(), 
+
         '1.0.0', 
+
         true 
+
     );
+
 }
+
 add_action( 'wp_enqueue_scripts', 'enqueue_animation_scripts' );
 
+
+
 // ダークモードスクリプト読み込み
+
 function enqueue_dark_mode_scripts() {
+
     wp_enqueue_script( 
+
         'dark-mode-js', 
+
         get_stylesheet_directory_uri() . '/js/dark-mode.js', 
+
         array(), 
+
         '1.0.0', 
+
         true 
+
     );
+
 }
+
 add_action( 'wp_enqueue_scripts', 'enqueue_dark_mode_scripts' );
 
+
+
 // 画像遅延読み込みスクリプト
+
 function enqueue_lazy_load_scripts() {
+
     wp_enqueue_script( 
+
         'lazy-load-js', 
+
         get_stylesheet_directory_uri() . '/js/lazy-load.js', 
+
         array(), 
+
         '1.0.0', 
+
         true 
+
     );
+
 }
+
 add_action( 'wp_enqueue_scripts', 'enqueue_lazy_load_scripts' );
 
+
+
 // ========================================
+
 // パフォーマンス最適化 - Section 5.3
+
 // ========================================
+
+
 
 // WebPサポートの追加
+
 function enaga_blog_add_webp_support( $mimes ) {
+
     $mimes['webp'] = 'image/webp';
+
     return $mimes;
+
 }
+
 add_filter( 'upload_mimes', 'enaga_blog_add_webp_support' );
 
+
+
 // 不要なスクリプトを削除してパフォーマンス向上
+
 function enaga_blog_remove_unnecessary_scripts() {
+
     // 不要な絵文字スクリプトを削除
+
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+
     remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
     remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+
     remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
     
+
     // RSSリンクを削除（不要な場合）
+
     // remove_action( 'wp_head', 'feed_links_extra', 3 );
+
     
+
     // Windows Live Writer用リンクを削除
+
     remove_action( 'wp_head', 'wlwmanifest_link' );
+
     
     // WordPressバージョン情報を削除（セキュリティ対策）
     remove_action( 'wp_head', 'wp_generator' );
@@ -350,15 +503,6 @@ function enaga_blog_custom_footer() {
                     }
                     ?>
                 </ul>
-                
-                <!-- ニュースレター登録 -->
-                <div class="enaga-newsletter-signup">
-                    <h4>最新記事をメールで受け取る</h4>
-                    <form class="enaga-newsletter-form" action="#" method="post">
-                        <input type="email" name="newsletter_email" placeholder="メールアドレス" required>
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
             </div>
             
         </div>
@@ -549,3 +693,28 @@ function enaga_blog_register_widgets() {
     register_widget('Enaga_Popular_Posts_Widget');
 }
 add_action('widgets_init', 'enaga_blog_register_widgets');
+
+// ============================================
+// トップへ戻るボタン
+// ============================================
+
+/**
+ * トップへ戻るボタン用のJavaScriptを読み込む
+ * 
+ * 優先度を25に設定することで、親テーマ（通常は優先度10）より
+ * 後に読み込まれるようにしています。
+ * 
+ * バージョン番号にtime()を使用してキャッシュを破棄しています。
+ * 本番環境では固定のバージョン番号（例: '1.0.0'）に変更することを
+ * 推奨します。
+ */
+function enaga_blog_enqueue_back_to_top_script() {
+    wp_enqueue_script(
+        'cocoon-back-to-top', // スクリプトハンドル名
+        get_stylesheet_directory_uri() . '/js/back-to-top.js', // JSファイルのパス
+        array(), // 依存スクリプト（なし）
+        '1.0.0', // バージョン番号（キャッシュ対策用）
+        true // フッターで読み込む（true = wp_footerで出力）
+    );
+}
+add_action('wp_enqueue_scripts', 'enaga_blog_enqueue_back_to_top_script', 25);
